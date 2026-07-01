@@ -1,0 +1,29 @@
+name: Container Security Scan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker Image
+        run: |
+          docker build -t shopnow-backend:latest .
+
+      - name: Scan Image with Trivy
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: shopnow-backend:latest
+          severity: HIGH,CRITICAL
+          exit-code: "1"
+          ignore-unfixed: true
