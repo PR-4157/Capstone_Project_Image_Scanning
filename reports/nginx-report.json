@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.71.2"
   },
-  "ReportID": "019f1449-1b4b-7bc7-ac7d-004e9cbb5bf3",
-  "CreatedAt": "2026-06-29T22:19:23.275775+05:30",
+  "ReportID": "019f1dc4-c1cf-7a50-bf99-9a814bdd4222",
+  "CreatedAt": "2026-07-01T18:31:01.775677+05:30",
   "ArtifactID": "sha256:e55ed675c9017dee87505511e38f485f0a51a1e522637ed8141afc5f88a9bc0f",
   "ArtifactName": "nginx",
   "ArtifactType": "container_image",
@@ -10914,6 +10914,53 @@
           }
         },
         {
+          "VulnerabilityID": "CVE-2026-13595",
+          "PkgID": "bsdutils@1:2.41-5",
+          "PkgName": "bsdutils",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/bsdutils@2.41-5?arch=arm64\u0026distro=debian-13.5\u0026epoch=1",
+            "UID": "94e268d496da180"
+          },
+          "InstalledVersion": "1:2.41-5",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:3be819c1c8cfde074541a1d875fbf2da3642b0ec6bb39aaa2ce7d56052b67dc1",
+            "DiffID": "sha256:221f7a7e2aa9a3dc4a14beca97f5dada40cf6915886474e7840e3b44c2b24f1a"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-13595",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:d3d7875029865e075a8e144cf579dde94812cf497e60cd2d144d6d3ec8663b3a",
+          "Title": "util-linux: util-linux: heap use-after-free in libblkid nested partition probing",
+          "Description": "A flaw was found in the libblkid library of util-linux. During nested partition probing, the BSD, Minix, Solaris x86, and UnixWare partition probers cache a raw pointer to a parent partition entry in a dynamically allocated array. When subsequent partition additions cause the array to be reallocated, this pointer becomes stale, leading to a heap use-after-free read. An attacker who can present a crafted block device image (for example, via USB insertion or a loop-mounted disk image) can trigger this flaw without user interaction, as libblkid is invoked automatically by udev/udisks as root on block-device hot-plug events. This could lead to limited information disclosure or denial of service.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-416"
+          ],
+          "VendorSeverity": {
+            "redhat": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H",
+              "V3Score": 6.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:26573",
+            "https://access.redhat.com/security/cve/CVE-2026-13595",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2494101",
+            "https://github.com/util-linux/util-linux/commit/c0186f14fbdb02f64c8e0ba701ce727ea764ff4c",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-13595",
+            "https://www.cve.org/CVERecord?id=CVE-2026-13595"
+          ],
+          "PublishedDate": "2026-06-29T09:16:28.303Z",
+          "LastModifiedDate": "2026-06-30T03:17:14.55Z"
+        },
+        {
           "VulnerabilityID": "CVE-2026-27456",
           "PkgID": "bsdutils@1:2.41-5",
           "PkgName": "bsdutils",
@@ -11150,14 +11197,14 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2419369",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-14104",
             "https://errata.almalinux.org/9/ALSA-2026-1913.html",
-            "https://errata.rockylinux.org/RLSA-2026:1696",
+            "https://errata.rockylinux.org/RLSA-2026:1913",
             "https://linux.oracle.com/cve/CVE-2025-14104.html",
             "https://linux.oracle.com/errata/ELSA-2026-1913.html",
             "https://nvd.nist.gov/vuln/detail/CVE-2025-14104",
             "https://www.cve.org/CVERecord?id=CVE-2025-14104"
           ],
           "PublishedDate": "2025-12-05T17:16:03.117Z",
-          "LastModifiedDate": "2026-06-25T04:17:47.337Z"
+          "LastModifiedDate": "2026-06-30T00:16:53.04Z"
         },
         {
           "VulnerabilityID": "CVE-2026-53612",
@@ -11357,6 +11404,8 @@
             "http://www.openwall.com/lists/oss-security/2025/05/29/1",
             "http://www.openwall.com/lists/oss-security/2025/05/29/2",
             "https://access.redhat.com/errata/RHSA-2026:28911",
+            "https://access.redhat.com/errata/RHSA-2026:33124",
+            "https://access.redhat.com/errata/RHSA-2026:33313",
             "https://access.redhat.com/security/cve/CVE-2025-5278",
             "https://bugzilla.redhat.com/2368764",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2368764",
@@ -11373,7 +11422,7 @@
             "https://www.cve.org/CVERecord?id=CVE-2025-5278"
           ],
           "PublishedDate": "2025-05-27T21:15:23.197Z",
-          "LastModifiedDate": "2026-06-25T05:16:47.38Z"
+          "LastModifiedDate": "2026-06-30T03:16:54.03Z"
         },
         {
           "VulnerabilityID": "CVE-2026-5773",
@@ -12628,37 +12677,6 @@
           ]
         },
         {
-          "VulnerabilityID": "CVE-2026-8932",
-          "PkgID": "curl@8.14.1-2+deb13u3",
-          "PkgName": "curl",
-          "PkgIdentifier": {
-            "PURL": "pkg:deb/debian/curl@8.14.1-2%2Bdeb13u3?arch=arm64\u0026distro=debian-13.5",
-            "UID": "7edfc30215009c3e"
-          },
-          "InstalledVersion": "8.14.1-2+deb13u3",
-          "Status": "affected",
-          "Layer": {
-            "Digest": "sha256:74e33773ee422c9fd79e13f2cdd7e6303f90714d16a722175ed5fff61d220195",
-            "DiffID": "sha256:cdba327ac2d60d5bcda3553117d740aebbd7d3859f6e37798d7f36f57695aea4"
-          },
-          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-8932",
-          "DataSource": {
-            "ID": "debian",
-            "Name": "Debian Security Tracker",
-            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
-          },
-          "Fingerprint": "sha256:f70473792e33d0ec127ad4b60d930c39ef911d4095b42dcc6ca9594cde3c4ab9",
-          "Description": "libcurl would reuse a previously created connection even when some mTLS config related option had been changed that should have prohibited reuse. libcurl keeps previously used connections in a connection pool for subsequent transfers to reuse if one of them matches the setup. However, some TLS settings related to client certificates were left out from the configuration match checks, making them match too easily. In particular options related to the private key.",
-          "Severity": "LOW",
-          "VendorSeverity": {
-            "ubuntu": 1
-          },
-          "References": [
-            "https://curl.se/L7HzKXisfJ/CVE-2026-8932.md",
-            "https://www.cve.org/CVERecord?id=CVE-2026-8932"
-          ]
-        },
-        {
           "VulnerabilityID": "CVE-2026-9080",
           "PkgID": "curl@8.14.1-2+deb13u3",
           "PkgName": "curl",
@@ -12752,6 +12770,207 @@
           ]
         },
         {
+          "VulnerabilityID": "CVE-2026-8932",
+          "PkgID": "curl@8.14.1-2+deb13u3",
+          "PkgName": "curl",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/curl@8.14.1-2%2Bdeb13u3?arch=arm64\u0026distro=debian-13.5",
+            "UID": "7edfc30215009c3e"
+          },
+          "InstalledVersion": "8.14.1-2+deb13u3",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:74e33773ee422c9fd79e13f2cdd7e6303f90714d16a722175ed5fff61d220195",
+            "DiffID": "sha256:cdba327ac2d60d5bcda3553117d740aebbd7d3859f6e37798d7f36f57695aea4"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-8932",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:f70473792e33d0ec127ad4b60d930c39ef911d4095b42dcc6ca9594cde3c4ab9",
+          "Severity": "UNKNOWN"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-41991",
+          "PkgID": "gzip@1.13-1",
+          "PkgName": "gzip",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/gzip@1.13-1?arch=arm64\u0026distro=debian-13.5",
+            "UID": "96c405cbe579d2a5"
+          },
+          "InstalledVersion": "1.13-1",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:3be819c1c8cfde074541a1d875fbf2da3642b0ec6bb39aaa2ce7d56052b67dc1",
+            "DiffID": "sha256:221f7a7e2aa9a3dc4a14beca97f5dada40cf6915886474e7840e3b44c2b24f1a"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-41991",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:d2c6e541aaa9d4d5b53cb47227e45cbe5a8568203fcbda1877f9e65b1d645d1b",
+          "Title": "gzip: gzip: Arbitrary file overwrite via insecure temporary file handling in gzexe utility",
+          "Description": "GNU gzip contains a vulnerability in the gzexe utility related to insecure temporary file handling. When the mktemp utility is not available in the user’s PATH, gzexe falls back to constructing a temporary file path based solely on the process ID (PID). This predictable filename is created without exclusive access or existence checks.\nA local attacker can pre‑create the predicted temporary file path as a symbolic link pointing to an arbitrary file writable by the victim. When gzexe runs, it follows the symlink and overwrites the target file, resulting in a time‑of‑check to time‑of‑use (TOCTOU) condition that allows arbitrary file overwrite.\n\nThis issue has been fixed in the commit 4e6f8b24ab823146ab8776f0b7fe486ab34d4269",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-377"
+          ],
+          "VendorSeverity": {
+            "redhat": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:R/S:U/C:N/I:H/A:H",
+              "V3Score": 6
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-41991",
+            "https://cert.pl/en/posts/2026/04/CVE-2026-41991/",
+            "https://cgit.git.savannah.gnu.org/cgit/gzip.git/commit/?id=4e6f8b24ab823146ab8776f0b7fe486ab34d4269",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-41991",
+            "https://www.cve.org/CVERecord?id=CVE-2026-41991",
+            "https://www.gnu.org/software/gzip/"
+          ],
+          "PublishedDate": "2026-06-29T12:16:29.77Z",
+          "LastModifiedDate": "2026-06-29T19:12:56.173Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-41992",
+          "PkgID": "gzip@1.13-1",
+          "PkgName": "gzip",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/gzip@1.13-1?arch=arm64\u0026distro=debian-13.5",
+            "UID": "96c405cbe579d2a5"
+          },
+          "InstalledVersion": "1.13-1",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:3be819c1c8cfde074541a1d875fbf2da3642b0ec6bb39aaa2ce7d56052b67dc1",
+            "DiffID": "sha256:221f7a7e2aa9a3dc4a14beca97f5dada40cf6915886474e7840e3b44c2b24f1a"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-41992",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:369249d6c56cd1357d2b926617f34b1d03ab85e753b2da3d7e44617ee7d89e82",
+          "Title": "GNU gzip contains a global buffer overflow vulnerability in the LZH de ...",
+          "Description": "GNU gzip contains a global buffer overflow vulnerability in the LZH decompression logic caused by improper reuse of shared global state between different decompression formats within a single execution. GNU gzip maintains a global array that is shared across the LZ77, LZW, and LZH decompression routines and is not reinitialized between files processed in the same invocation.\nBy decompressing a specially crafted LZW file followed by a specially crafted LZH file in a single gzip -d command, an attacker can poison the shared global state and subsequently trigger an out‑of‑bounds read in the LZH decoder. The LZH decompression logic follows stale values left in the shared array, causing reads past the end of the allocated global buffer.\n\nThis issue has been fixed in the commit 63dbf6b3b9e6e781df1a6a64e609b10e23969681",
+          "Severity": "UNKNOWN",
+          "CweIDs": [
+            "CWE-126"
+          ],
+          "References": [
+            "https://cert.pl/en/posts/2026/04/CVE-2026-41991/",
+            "https://cgit.git.savannah.gnu.org/cgit/gzip.git/commit/?id=63dbf6b3b9e6e781df1a6a64e609b10e23969681",
+            "https://www.gnu.org/software/gzip/"
+          ],
+          "PublishedDate": "2026-06-29T12:16:29.94Z",
+          "LastModifiedDate": "2026-06-29T19:12:56.173Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-54369",
+          "PkgID": "libacl1@2.3.2-2+b1",
+          "PkgName": "libacl1",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libacl1@2.3.2-2%2Bb1?arch=arm64\u0026distro=debian-13.5",
+            "UID": "e028456a3c99844e"
+          },
+          "InstalledVersion": "2.3.2-2+b1",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:3be819c1c8cfde074541a1d875fbf2da3642b0ec6bb39aaa2ce7d56052b67dc1",
+            "DiffID": "sha256:221f7a7e2aa9a3dc4a14beca97f5dada40cf6915886474e7840e3b44c2b24f1a"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-54369",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:7df8c8282a957cb108385dbb8d0b14b0506e810fcf012df01598094d69082ffb",
+          "Title": "acl: Symlink traversal privilege escalation via libacl functions",
+          "Description": "acl before version 2.4.0 contains a symlink traversal vulnerability in the libacl pathname-based functions acl_get_file(), acl_set_file(), acl_extended_file(), and acl_delete_def_file() that allows local attackers to escalate privileges by replacing any pathname component with a symbolic link. Attackers who control any component of a pathname processed by a privileged caller can redirect ACL read or write operations to arbitrary files or directories, enabling unauthorized manipulation of access control lists and local privilege escalation.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-59"
+          ],
+          "VendorSeverity": {
+            "redhat": 3
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 7.1
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-54369",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2490277",
+            "https://cgit.git.savannah.nongnu.org/cgit/acl.git/commit/?id=24a227d0ab8576612194f8a56c2314389adc74a5",
+            "https://cgit.git.savannah.nongnu.org/cgit/acl.git/commit/?id=3589787cd589b34bdd9265936e17190b6d3f17d1",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54369",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-54369.json",
+            "https://www.cve.org/CVERecord?id=CVE-2026-54369",
+            "https://www.vulncheck.com/advisories/acl-symlink-traversal-privilege-escalation-via-libacl-functions"
+          ],
+          "PublishedDate": "2026-06-29T14:16:57.487Z",
+          "LastModifiedDate": "2026-06-30T03:21:02.73Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-54370",
+          "PkgID": "libacl1@2.3.2-2+b1",
+          "PkgName": "libacl1",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libacl1@2.3.2-2%2Bb1?arch=arm64\u0026distro=debian-13.5",
+            "UID": "e028456a3c99844e"
+          },
+          "InstalledVersion": "2.3.2-2+b1",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:3be819c1c8cfde074541a1d875fbf2da3642b0ec6bb39aaa2ce7d56052b67dc1",
+            "DiffID": "sha256:221f7a7e2aa9a3dc4a14beca97f5dada40cf6915886474e7840e3b44c2b24f1a"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-54370",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:b3a21d5f76e02a16bb891a7dd3240df3f61be04c535d7c3ba01fdc8513568a2e",
+          "Title": "acl: TOCTOU Symlink Traversal via getfacl/setfacl",
+          "Description": "acl before version 2.4.0 contains a time-of-check to time-of-use (TOCTOU) race condition vulnerability that allows local attackers to escalate privileges by replacing a pathname component with a symbolic link between an lstat() check and subsequent symlink-following operations such as stat(), chown(), chmod(), acl_get_file(), and acl_set_file(). Attackers who control a pathname component can redirect file access control list operations to arbitrary files when getfacl, setfacl, or chacl is invoked by a privileged process over an attacker-controlled path, resulting in local privilege escalation.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-367"
+          ],
+          "VendorSeverity": {
+            "redhat": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 6.3
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-54370",
+            "https://cgit.git.savannah.nongnu.org/cgit/acl.git/commit/?id=24a227d0ab8576612194f8a56c2314389adc74a5",
+            "https://cgit.git.savannah.nongnu.org/cgit/acl.git/commit/?id=3589787cd589b34bdd9265936e17190b6d3f17d1",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54370",
+            "https://www.cve.org/CVERecord?id=CVE-2026-54370",
+            "https://www.vulncheck.com/advisories/acl-toctou-symlink-traversal-via-getfacl-setfacl-chacl"
+          ],
+          "PublishedDate": "2026-06-29T14:16:57.67Z",
+          "LastModifiedDate": "2026-06-29T19:22:57.46Z"
+        },
+        {
           "VulnerabilityID": "CVE-2026-56208",
           "PkgID": "libaom3@3.12.1-1",
           "PkgName": "libaom3",
@@ -12794,10 +13013,11 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2490799",
             "https://issues.chromium.org/issues/504317456",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-56208",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-56208.json",
             "https://www.cve.org/CVERecord?id=CVE-2026-56208"
           ],
           "PublishedDate": "2026-06-19T17:16:30.297Z",
-          "LastModifiedDate": "2026-06-29T01:16:30.85Z"
+          "LastModifiedDate": "2026-06-30T03:21:03.54Z"
         },
         {
           "VulnerabilityID": "CVE-2026-56209",
@@ -12842,10 +13062,11 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2490800",
             "https://issues.chromium.org/issues/503993984",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-56209",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-56209.json",
             "https://www.cve.org/CVERecord?id=CVE-2026-56209"
           ],
           "PublishedDate": "2026-06-19T17:16:30.427Z",
-          "LastModifiedDate": "2026-06-29T01:16:31.003Z"
+          "LastModifiedDate": "2026-06-30T03:21:03.76Z"
         },
         {
           "VulnerabilityID": "CVE-2026-56210",
@@ -12890,10 +13111,11 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2490801",
             "https://issues.chromium.org/issues/503975732",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-56210",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-56210.json",
             "https://www.cve.org/CVERecord?id=CVE-2026-56210"
           ],
           "PublishedDate": "2026-06-19T17:16:30.557Z",
-          "LastModifiedDate": "2026-06-29T01:16:31.137Z"
+          "LastModifiedDate": "2026-06-30T03:21:03.977Z"
         },
         {
           "VulnerabilityID": "CVE-2026-56211",
@@ -12938,10 +13160,11 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2490802",
             "https://issues.chromium.org/issues/503993985",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-56211",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-56211.json",
             "https://www.cve.org/CVERecord?id=CVE-2026-56211"
           ],
           "PublishedDate": "2026-06-19T17:16:30.68Z",
-          "LastModifiedDate": "2026-06-29T01:16:31.273Z"
+          "LastModifiedDate": "2026-06-30T03:21:04.19Z"
         },
         {
           "VulnerabilityID": "CVE-2011-3374",
@@ -12994,6 +13217,102 @@
           ],
           "PublishedDate": "2019-11-26T00:15:11.03Z",
           "LastModifiedDate": "2024-11-21T01:30:22.61Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-54371",
+          "PkgID": "libattr1@1:2.5.2-3",
+          "PkgName": "libattr1",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libattr1@2.5.2-3?arch=arm64\u0026distro=debian-13.5\u0026epoch=1",
+            "UID": "1f154e199bd04886"
+          },
+          "InstalledVersion": "1:2.5.2-3",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:3be819c1c8cfde074541a1d875fbf2da3642b0ec6bb39aaa2ce7d56052b67dc1",
+            "DiffID": "sha256:221f7a7e2aa9a3dc4a14beca97f5dada40cf6915886474e7840e3b44c2b24f1a"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-54371",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:fa29e6a16605d723da7acc5ee9a4851601a8ac1d9ff2f9284683ba8380a221e8",
+          "Title": "attr: Symlink Traversal Privilege Escalation via getfattr",
+          "Description": "attr before version 2.6.0 contains a symlink traversal vulnerability in the getfattr and setfattr utilities that allows local attackers to escalate privileges by replacing a pathname component with a symbolic link during directory hierarchy traversal. Attackers who control a pathname component can redirect getfattr and setfattr operations to arbitrary files by substituting a symlink, leading to local privilege escalation when getfattr or setfattr is invoked by a privileged process over an attacker-controlled path.",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-59"
+          ],
+          "VendorSeverity": {
+            "redhat": 3
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N",
+              "V3Score": 7.1
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-54371",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2490283",
+            "https://cgit.git.savannah.nongnu.org/cgit/attr.git/commit/?id=49f79e947270f06940b9100fa638f85dddc4aa7f",
+            "https://cgit.git.savannah.nongnu.org/cgit/attr.git/commit/?id=c440855d6b33446edf4b5eb1a2d892281f15a99b",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-54371",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-54371.json",
+            "https://www.cve.org/CVERecord?id=CVE-2026-54371",
+            "https://www.vulncheck.com/advisories/attr-symlink-traversal-privilege-escalation-via-getfattr-setfattr"
+          ],
+          "PublishedDate": "2026-06-29T14:16:57.823Z",
+          "LastModifiedDate": "2026-06-30T12:16:24.957Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-13595",
+          "PkgID": "libblkid1@2.41-5",
+          "PkgName": "libblkid1",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libblkid1@2.41-5?arch=arm64\u0026distro=debian-13.5",
+            "UID": "a6db2dda07a49c3e"
+          },
+          "InstalledVersion": "2.41-5",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:3be819c1c8cfde074541a1d875fbf2da3642b0ec6bb39aaa2ce7d56052b67dc1",
+            "DiffID": "sha256:221f7a7e2aa9a3dc4a14beca97f5dada40cf6915886474e7840e3b44c2b24f1a"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-13595",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:b5b290409ce53bb5de581db2a15f66c5bee521edfcec8d77254e54964d0003ca",
+          "Title": "util-linux: util-linux: heap use-after-free in libblkid nested partition probing",
+          "Description": "A flaw was found in the libblkid library of util-linux. During nested partition probing, the BSD, Minix, Solaris x86, and UnixWare partition probers cache a raw pointer to a parent partition entry in a dynamically allocated array. When subsequent partition additions cause the array to be reallocated, this pointer becomes stale, leading to a heap use-after-free read. An attacker who can present a crafted block device image (for example, via USB insertion or a loop-mounted disk image) can trigger this flaw without user interaction, as libblkid is invoked automatically by udev/udisks as root on block-device hot-plug events. This could lead to limited information disclosure or denial of service.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-416"
+          ],
+          "VendorSeverity": {
+            "redhat": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H",
+              "V3Score": 6.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:26573",
+            "https://access.redhat.com/security/cve/CVE-2026-13595",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2494101",
+            "https://github.com/util-linux/util-linux/commit/c0186f14fbdb02f64c8e0ba701ce727ea764ff4c",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-13595",
+            "https://www.cve.org/CVERecord?id=CVE-2026-13595"
+          ],
+          "PublishedDate": "2026-06-29T09:16:28.303Z",
+          "LastModifiedDate": "2026-06-30T03:17:14.55Z"
         },
         {
           "VulnerabilityID": "CVE-2026-27456",
@@ -13232,14 +13551,14 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2419369",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-14104",
             "https://errata.almalinux.org/9/ALSA-2026-1913.html",
-            "https://errata.rockylinux.org/RLSA-2026:1696",
+            "https://errata.rockylinux.org/RLSA-2026:1913",
             "https://linux.oracle.com/cve/CVE-2025-14104.html",
             "https://linux.oracle.com/errata/ELSA-2026-1913.html",
             "https://nvd.nist.gov/vuln/detail/CVE-2025-14104",
             "https://www.cve.org/CVERecord?id=CVE-2025-14104"
           ],
           "PublishedDate": "2025-12-05T17:16:03.117Z",
-          "LastModifiedDate": "2026-06-25T04:17:47.337Z"
+          "LastModifiedDate": "2026-06-30T00:16:53.04Z"
         },
         {
           "VulnerabilityID": "CVE-2026-53612",
@@ -15816,37 +16135,6 @@
           ]
         },
         {
-          "VulnerabilityID": "CVE-2026-8932",
-          "PkgID": "libcurl4t64@8.14.1-2+deb13u3",
-          "PkgName": "libcurl4t64",
-          "PkgIdentifier": {
-            "PURL": "pkg:deb/debian/libcurl4t64@8.14.1-2%2Bdeb13u3?arch=arm64\u0026distro=debian-13.5",
-            "UID": "b0bfd76393e74777"
-          },
-          "InstalledVersion": "8.14.1-2+deb13u3",
-          "Status": "affected",
-          "Layer": {
-            "Digest": "sha256:74e33773ee422c9fd79e13f2cdd7e6303f90714d16a722175ed5fff61d220195",
-            "DiffID": "sha256:cdba327ac2d60d5bcda3553117d740aebbd7d3859f6e37798d7f36f57695aea4"
-          },
-          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-8932",
-          "DataSource": {
-            "ID": "debian",
-            "Name": "Debian Security Tracker",
-            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
-          },
-          "Fingerprint": "sha256:00cb1b453f99203dd72b0c2941a987ed309f2473ab29654595a838fb20ca0d3b",
-          "Description": "libcurl would reuse a previously created connection even when some mTLS config related option had been changed that should have prohibited reuse. libcurl keeps previously used connections in a connection pool for subsequent transfers to reuse if one of them matches the setup. However, some TLS settings related to client certificates were left out from the configuration match checks, making them match too easily. In particular options related to the private key.",
-          "Severity": "LOW",
-          "VendorSeverity": {
-            "ubuntu": 1
-          },
-          "References": [
-            "https://curl.se/L7HzKXisfJ/CVE-2026-8932.md",
-            "https://www.cve.org/CVERecord?id=CVE-2026-8932"
-          ]
-        },
-        {
           "VulnerabilityID": "CVE-2026-9080",
           "PkgID": "libcurl4t64@8.14.1-2+deb13u3",
           "PkgName": "libcurl4t64",
@@ -15938,6 +16226,29 @@
             "https://curl.se/L7HzKXisfJ/CVE-2026-9547.md",
             "https://www.cve.org/CVERecord?id=CVE-2026-9547"
           ]
+        },
+        {
+          "VulnerabilityID": "CVE-2026-8932",
+          "PkgID": "libcurl4t64@8.14.1-2+deb13u3",
+          "PkgName": "libcurl4t64",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libcurl4t64@8.14.1-2%2Bdeb13u3?arch=arm64\u0026distro=debian-13.5",
+            "UID": "b0bfd76393e74777"
+          },
+          "InstalledVersion": "8.14.1-2+deb13u3",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:74e33773ee422c9fd79e13f2cdd7e6303f90714d16a722175ed5fff61d220195",
+            "DiffID": "sha256:cdba327ac2d60d5bcda3553117d740aebbd7d3859f6e37798d7f36f57695aea4"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-8932",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:00cb1b453f99203dd72b0c2941a987ed309f2473ab29654595a838fb20ca0d3b",
+          "Severity": "UNKNOWN"
         },
         {
           "VulnerabilityID": "CVE-2026-33164",
@@ -16327,33 +16638,11 @@
             "https://bugzilla.redhat.com/2457932",
             "https://bugzilla.redhat.com/2458049",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2395108",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2408891",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2418084",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2431366",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2431374",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2444691",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2448168",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2448181",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2449649",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2457409",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2457932",
-            "https://bugzilla.redhat.com/show_bug.cgi?id=2458049",
             "https://cert-portal.siemens.com/productcert/html/ssa-082556.html",
             "https://cert-portal.siemens.com/productcert/html/ssa-089022.html",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-13837",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-15282",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-59375",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-6075",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-0672",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-1502",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-2297",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-3644",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-4224",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-4519",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-4786",
-            "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-6100",
             "https://errata.almalinux.org/9/ALSA-2026-19177.html",
-            "https://errata.rockylinux.org/RLSA-2026:19064",
+            "https://errata.rockylinux.org/RLSA-2025:22175",
             "https://github.com/bottlerocket-os/bottlerocket-core-kit/blob/develop/advisories/10.5.0/BRSA-ja1ptrrpkcey.toml",
             "https://github.com/libexpat/libexpat/blob/676a4c531ec768732fac215da9730b5f50fbd2bf/expat/Changes#L45-L74",
             "https://github.com/libexpat/libexpat/blob/R_2_7_2/expat/Changes",
@@ -16481,21 +16770,27 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2026/05/11/16",
+            "https://access.redhat.com/errata/RHSA-2026:22715",
+            "https://access.redhat.com/errata/RHSA-2026:22721",
             "https://access.redhat.com/errata/RHSA-2026:23230",
+            "https://access.redhat.com/errata/RHSA-2026:26319",
+            "https://access.redhat.com/errata/RHSA-2026:27201",
+            "https://access.redhat.com/errata/RHSA-2026:29197",
             "https://access.redhat.com/security/cve/CVE-2026-45186",
             "https://bugzilla.redhat.com/2468575",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2468575",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2026-45186",
             "https://errata.almalinux.org/9/ALSA-2026-23230.html",
-            "https://errata.rockylinux.org/RLSA-2026:22715",
+            "https://errata.rockylinux.org/RLSA-2026:23230",
             "https://github.com/libexpat/libexpat/pull/1216",
             "https://linux.oracle.com/cve/CVE-2026-45186.html",
             "https://linux.oracle.com/errata/ELSA-2026-23230.html",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-45186",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-45186.json",
             "https://www.cve.org/CVERecord?id=CVE-2026-45186"
           ],
           "PublishedDate": "2026-05-10T07:16:07.883Z",
-          "LastModifiedDate": "2026-06-17T10:51:45.503Z"
+          "LastModifiedDate": "2026-06-30T03:20:02.997Z"
         },
         {
           "VulnerabilityID": "CVE-2025-66382",
@@ -18007,14 +18302,16 @@
           },
           "References": [
             "https://access.redhat.com/security/cve/CVE-2026-32740",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2479969",
             "https://github.com/strukturag/libheif/releases/tag/v1.22.0",
             "https://github.com/strukturag/libheif/security/advisories/GHSA-frfr-f3vg-2g6j",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-32740",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-32740.json",
             "https://ubuntu.com/security/notices/USN-8454-1",
             "https://www.cve.org/CVERecord?id=CVE-2026-32740"
           ],
           "PublishedDate": "2026-05-19T20:16:18.917Z",
-          "LastModifiedDate": "2026-06-17T10:36:18.26Z"
+          "LastModifiedDate": "2026-06-30T03:18:33.67Z"
         },
         {
           "VulnerabilityID": "CVE-2026-32741",
@@ -18041,7 +18338,8 @@
           "Description": "libheif is a HEIF and AVIF file format decoder and encoder. Versions 1.21.2 and below contain a heap buffer overflow in MaskImageCodec::decode_mask_image(). When decoding a HEIF file containing a mask image (mski), the function copies the full iloc extent data into a pixel buffer using memcpy(dst, data.data(), data.size()). The copy length data.size() is determined by the iloc extent in the file (attacker-controlled), while the destination buffer is sized based on the declared image dimensions. Because no upper-bound check exists on the data length, a crafted file whose iloc extent exceeds the pixel buffer allocation overflows the heap. The vulnerable single-memcpy branch is reached when the mskC property specifies bits_per_pixel = 8 and the ispe property declares an even width ≥ 64 (so that stride == width), with no changes to default security limits or external codec plugins required. This issue has been fixed in version 1.22.0.",
           "Severity": "HIGH",
           "CweIDs": [
-            "CWE-122"
+            "CWE-122",
+            "CWE-120"
           ],
           "VendorSeverity": {
             "amazon": 3,
@@ -18056,14 +18354,16 @@
           },
           "References": [
             "https://access.redhat.com/security/cve/CVE-2026-32741",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2480002",
             "https://github.com/strukturag/libheif/releases/tag/v1.22.0",
             "https://github.com/strukturag/libheif/security/advisories/GHSA-j3w5-7whq-p37q",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-32741",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-32741.json",
             "https://ubuntu.com/security/notices/USN-8454-1",
             "https://www.cve.org/CVERecord?id=CVE-2026-32741"
           ],
           "PublishedDate": "2026-05-19T21:16:42.073Z",
-          "LastModifiedDate": "2026-06-17T10:36:18.367Z"
+          "LastModifiedDate": "2026-06-30T03:18:33.853Z"
         },
         {
           "VulnerabilityID": "CVE-2026-32882",
@@ -18105,14 +18405,16 @@
           },
           "References": [
             "https://access.redhat.com/security/cve/CVE-2026-32882",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2480000",
             "https://github.com/strukturag/libheif/releases/tag/v1.22.0",
             "https://github.com/strukturag/libheif/security/advisories/GHSA-hg7q-rjr2-8x46",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-32882",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-32882.json",
             "https://ubuntu.com/security/notices/USN-8454-1",
             "https://www.cve.org/CVERecord?id=CVE-2026-32882"
           ],
           "PublishedDate": "2026-05-19T21:16:42.363Z",
-          "LastModifiedDate": "2026-06-17T10:36:30.203Z"
+          "LastModifiedDate": "2026-06-30T03:18:35.13Z"
         },
         {
           "VulnerabilityID": "CVE-2026-41071",
@@ -18404,6 +18706,7 @@
           "References": [
             "https://github.com/strukturag/libheif/security/advisories/GHSA-5x55-x5pf-9c6g",
             "https://project-zero.issues.chromium.org/issues/507396184",
+            "https://ubuntu.com/security/notices/USN-8479-1",
             "https://www.cve.org/CVERecord?id=CVE-2026-47178"
           ]
         },
@@ -18439,6 +18742,7 @@
           },
           "References": [
             "https://github.com/strukturag/libheif/security/advisories/GHSA-r7qj-cg5r-r6vf",
+            "https://ubuntu.com/security/notices/USN-8479-1",
             "https://www.cve.org/CVERecord?id=CVE-2026-49271"
           ],
           "PublishedDate": "2026-06-19T18:16:19.353Z",
@@ -18600,14 +18904,16 @@
           },
           "References": [
             "https://access.redhat.com/security/cve/CVE-2026-32740",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2479969",
             "https://github.com/strukturag/libheif/releases/tag/v1.22.0",
             "https://github.com/strukturag/libheif/security/advisories/GHSA-frfr-f3vg-2g6j",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-32740",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-32740.json",
             "https://ubuntu.com/security/notices/USN-8454-1",
             "https://www.cve.org/CVERecord?id=CVE-2026-32740"
           ],
           "PublishedDate": "2026-05-19T20:16:18.917Z",
-          "LastModifiedDate": "2026-06-17T10:36:18.26Z"
+          "LastModifiedDate": "2026-06-30T03:18:33.67Z"
         },
         {
           "VulnerabilityID": "CVE-2026-32741",
@@ -18634,7 +18940,8 @@
           "Description": "libheif is a HEIF and AVIF file format decoder and encoder. Versions 1.21.2 and below contain a heap buffer overflow in MaskImageCodec::decode_mask_image(). When decoding a HEIF file containing a mask image (mski), the function copies the full iloc extent data into a pixel buffer using memcpy(dst, data.data(), data.size()). The copy length data.size() is determined by the iloc extent in the file (attacker-controlled), while the destination buffer is sized based on the declared image dimensions. Because no upper-bound check exists on the data length, a crafted file whose iloc extent exceeds the pixel buffer allocation overflows the heap. The vulnerable single-memcpy branch is reached when the mskC property specifies bits_per_pixel = 8 and the ispe property declares an even width ≥ 64 (so that stride == width), with no changes to default security limits or external codec plugins required. This issue has been fixed in version 1.22.0.",
           "Severity": "HIGH",
           "CweIDs": [
-            "CWE-122"
+            "CWE-122",
+            "CWE-120"
           ],
           "VendorSeverity": {
             "amazon": 3,
@@ -18649,14 +18956,16 @@
           },
           "References": [
             "https://access.redhat.com/security/cve/CVE-2026-32741",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2480002",
             "https://github.com/strukturag/libheif/releases/tag/v1.22.0",
             "https://github.com/strukturag/libheif/security/advisories/GHSA-j3w5-7whq-p37q",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-32741",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-32741.json",
             "https://ubuntu.com/security/notices/USN-8454-1",
             "https://www.cve.org/CVERecord?id=CVE-2026-32741"
           ],
           "PublishedDate": "2026-05-19T21:16:42.073Z",
-          "LastModifiedDate": "2026-06-17T10:36:18.367Z"
+          "LastModifiedDate": "2026-06-30T03:18:33.853Z"
         },
         {
           "VulnerabilityID": "CVE-2026-32882",
@@ -18698,14 +19007,16 @@
           },
           "References": [
             "https://access.redhat.com/security/cve/CVE-2026-32882",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2480000",
             "https://github.com/strukturag/libheif/releases/tag/v1.22.0",
             "https://github.com/strukturag/libheif/security/advisories/GHSA-hg7q-rjr2-8x46",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-32882",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-32882.json",
             "https://ubuntu.com/security/notices/USN-8454-1",
             "https://www.cve.org/CVERecord?id=CVE-2026-32882"
           ],
           "PublishedDate": "2026-05-19T21:16:42.363Z",
-          "LastModifiedDate": "2026-06-17T10:36:30.203Z"
+          "LastModifiedDate": "2026-06-30T03:18:35.13Z"
         },
         {
           "VulnerabilityID": "CVE-2026-41071",
@@ -18997,6 +19308,7 @@
           "References": [
             "https://github.com/strukturag/libheif/security/advisories/GHSA-5x55-x5pf-9c6g",
             "https://project-zero.issues.chromium.org/issues/507396184",
+            "https://ubuntu.com/security/notices/USN-8479-1",
             "https://www.cve.org/CVERecord?id=CVE-2026-47178"
           ]
         },
@@ -19032,6 +19344,7 @@
           },
           "References": [
             "https://github.com/strukturag/libheif/security/advisories/GHSA-r7qj-cg5r-r6vf",
+            "https://ubuntu.com/security/notices/USN-8479-1",
             "https://www.cve.org/CVERecord?id=CVE-2026-49271"
           ],
           "PublishedDate": "2026-06-19T18:16:19.353Z",
@@ -19193,14 +19506,16 @@
           },
           "References": [
             "https://access.redhat.com/security/cve/CVE-2026-32740",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2479969",
             "https://github.com/strukturag/libheif/releases/tag/v1.22.0",
             "https://github.com/strukturag/libheif/security/advisories/GHSA-frfr-f3vg-2g6j",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-32740",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-32740.json",
             "https://ubuntu.com/security/notices/USN-8454-1",
             "https://www.cve.org/CVERecord?id=CVE-2026-32740"
           ],
           "PublishedDate": "2026-05-19T20:16:18.917Z",
-          "LastModifiedDate": "2026-06-17T10:36:18.26Z"
+          "LastModifiedDate": "2026-06-30T03:18:33.67Z"
         },
         {
           "VulnerabilityID": "CVE-2026-32741",
@@ -19227,7 +19542,8 @@
           "Description": "libheif is a HEIF and AVIF file format decoder and encoder. Versions 1.21.2 and below contain a heap buffer overflow in MaskImageCodec::decode_mask_image(). When decoding a HEIF file containing a mask image (mski), the function copies the full iloc extent data into a pixel buffer using memcpy(dst, data.data(), data.size()). The copy length data.size() is determined by the iloc extent in the file (attacker-controlled), while the destination buffer is sized based on the declared image dimensions. Because no upper-bound check exists on the data length, a crafted file whose iloc extent exceeds the pixel buffer allocation overflows the heap. The vulnerable single-memcpy branch is reached when the mskC property specifies bits_per_pixel = 8 and the ispe property declares an even width ≥ 64 (so that stride == width), with no changes to default security limits or external codec plugins required. This issue has been fixed in version 1.22.0.",
           "Severity": "HIGH",
           "CweIDs": [
-            "CWE-122"
+            "CWE-122",
+            "CWE-120"
           ],
           "VendorSeverity": {
             "amazon": 3,
@@ -19242,14 +19558,16 @@
           },
           "References": [
             "https://access.redhat.com/security/cve/CVE-2026-32741",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2480002",
             "https://github.com/strukturag/libheif/releases/tag/v1.22.0",
             "https://github.com/strukturag/libheif/security/advisories/GHSA-j3w5-7whq-p37q",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-32741",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-32741.json",
             "https://ubuntu.com/security/notices/USN-8454-1",
             "https://www.cve.org/CVERecord?id=CVE-2026-32741"
           ],
           "PublishedDate": "2026-05-19T21:16:42.073Z",
-          "LastModifiedDate": "2026-06-17T10:36:18.367Z"
+          "LastModifiedDate": "2026-06-30T03:18:33.853Z"
         },
         {
           "VulnerabilityID": "CVE-2026-32882",
@@ -19291,14 +19609,16 @@
           },
           "References": [
             "https://access.redhat.com/security/cve/CVE-2026-32882",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2480000",
             "https://github.com/strukturag/libheif/releases/tag/v1.22.0",
             "https://github.com/strukturag/libheif/security/advisories/GHSA-hg7q-rjr2-8x46",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-32882",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-32882.json",
             "https://ubuntu.com/security/notices/USN-8454-1",
             "https://www.cve.org/CVERecord?id=CVE-2026-32882"
           ],
           "PublishedDate": "2026-05-19T21:16:42.363Z",
-          "LastModifiedDate": "2026-06-17T10:36:30.203Z"
+          "LastModifiedDate": "2026-06-30T03:18:35.13Z"
         },
         {
           "VulnerabilityID": "CVE-2026-41071",
@@ -19590,6 +19910,7 @@
           "References": [
             "https://github.com/strukturag/libheif/security/advisories/GHSA-5x55-x5pf-9c6g",
             "https://project-zero.issues.chromium.org/issues/507396184",
+            "https://ubuntu.com/security/notices/USN-8479-1",
             "https://www.cve.org/CVERecord?id=CVE-2026-47178"
           ]
         },
@@ -19625,6 +19946,7 @@
           },
           "References": [
             "https://github.com/strukturag/libheif/security/advisories/GHSA-r7qj-cg5r-r6vf",
+            "https://ubuntu.com/security/notices/USN-8479-1",
             "https://www.cve.org/CVERecord?id=CVE-2026-49271"
           ],
           "PublishedDate": "2026-06-19T18:16:19.353Z",
@@ -20475,6 +20797,53 @@
           "LastModifiedDate": "2026-06-17T10:14:30.383Z"
         },
         {
+          "VulnerabilityID": "CVE-2026-13595",
+          "PkgID": "liblastlog2-2@2.41-5",
+          "PkgName": "liblastlog2-2",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/liblastlog2-2@2.41-5?arch=arm64\u0026distro=debian-13.5",
+            "UID": "22309d5616968425"
+          },
+          "InstalledVersion": "2.41-5",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:3be819c1c8cfde074541a1d875fbf2da3642b0ec6bb39aaa2ce7d56052b67dc1",
+            "DiffID": "sha256:221f7a7e2aa9a3dc4a14beca97f5dada40cf6915886474e7840e3b44c2b24f1a"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-13595",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:900f93d2d16acf4f838998ae7f30bb910f0c3a78ee09a5a07da2ae96b03b9103",
+          "Title": "util-linux: util-linux: heap use-after-free in libblkid nested partition probing",
+          "Description": "A flaw was found in the libblkid library of util-linux. During nested partition probing, the BSD, Minix, Solaris x86, and UnixWare partition probers cache a raw pointer to a parent partition entry in a dynamically allocated array. When subsequent partition additions cause the array to be reallocated, this pointer becomes stale, leading to a heap use-after-free read. An attacker who can present a crafted block device image (for example, via USB insertion or a loop-mounted disk image) can trigger this flaw without user interaction, as libblkid is invoked automatically by udev/udisks as root on block-device hot-plug events. This could lead to limited information disclosure or denial of service.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-416"
+          ],
+          "VendorSeverity": {
+            "redhat": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H",
+              "V3Score": 6.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:26573",
+            "https://access.redhat.com/security/cve/CVE-2026-13595",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2494101",
+            "https://github.com/util-linux/util-linux/commit/c0186f14fbdb02f64c8e0ba701ce727ea764ff4c",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-13595",
+            "https://www.cve.org/CVERecord?id=CVE-2026-13595"
+          ],
+          "PublishedDate": "2026-06-29T09:16:28.303Z",
+          "LastModifiedDate": "2026-06-30T03:17:14.55Z"
+        },
+        {
           "VulnerabilityID": "CVE-2026-27456",
           "PkgID": "liblastlog2-2@2.41-5",
           "PkgName": "liblastlog2-2",
@@ -20711,14 +21080,14 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2419369",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-14104",
             "https://errata.almalinux.org/9/ALSA-2026-1913.html",
-            "https://errata.rockylinux.org/RLSA-2026:1696",
+            "https://errata.rockylinux.org/RLSA-2026:1913",
             "https://linux.oracle.com/cve/CVE-2025-14104.html",
             "https://linux.oracle.com/errata/ELSA-2026-1913.html",
             "https://nvd.nist.gov/vuln/detail/CVE-2025-14104",
             "https://www.cve.org/CVERecord?id=CVE-2025-14104"
           ],
           "PublishedDate": "2025-12-05T17:16:03.117Z",
-          "LastModifiedDate": "2026-06-25T04:17:47.337Z"
+          "LastModifiedDate": "2026-06-30T00:16:53.04Z"
         },
         {
           "VulnerabilityID": "CVE-2026-53612",
@@ -21166,6 +21535,53 @@
           "LastModifiedDate": "2026-06-17T10:39:32.747Z"
         },
         {
+          "VulnerabilityID": "CVE-2026-13595",
+          "PkgID": "libmount1@2.41-5",
+          "PkgName": "libmount1",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libmount1@2.41-5?arch=arm64\u0026distro=debian-13.5",
+            "UID": "edbd65a914e51b9a"
+          },
+          "InstalledVersion": "2.41-5",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:3be819c1c8cfde074541a1d875fbf2da3642b0ec6bb39aaa2ce7d56052b67dc1",
+            "DiffID": "sha256:221f7a7e2aa9a3dc4a14beca97f5dada40cf6915886474e7840e3b44c2b24f1a"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-13595",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:a314b30193ff00c0b7bddeffa118e3afd72be595c55b0a1f7c0beeedc59e7d27",
+          "Title": "util-linux: util-linux: heap use-after-free in libblkid nested partition probing",
+          "Description": "A flaw was found in the libblkid library of util-linux. During nested partition probing, the BSD, Minix, Solaris x86, and UnixWare partition probers cache a raw pointer to a parent partition entry in a dynamically allocated array. When subsequent partition additions cause the array to be reallocated, this pointer becomes stale, leading to a heap use-after-free read. An attacker who can present a crafted block device image (for example, via USB insertion or a loop-mounted disk image) can trigger this flaw without user interaction, as libblkid is invoked automatically by udev/udisks as root on block-device hot-plug events. This could lead to limited information disclosure or denial of service.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-416"
+          ],
+          "VendorSeverity": {
+            "redhat": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H",
+              "V3Score": 6.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:26573",
+            "https://access.redhat.com/security/cve/CVE-2026-13595",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2494101",
+            "https://github.com/util-linux/util-linux/commit/c0186f14fbdb02f64c8e0ba701ce727ea764ff4c",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-13595",
+            "https://www.cve.org/CVERecord?id=CVE-2026-13595"
+          ],
+          "PublishedDate": "2026-06-29T09:16:28.303Z",
+          "LastModifiedDate": "2026-06-30T03:17:14.55Z"
+        },
+        {
           "VulnerabilityID": "CVE-2026-27456",
           "PkgID": "libmount1@2.41-5",
           "PkgName": "libmount1",
@@ -21402,14 +21818,14 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2419369",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-14104",
             "https://errata.almalinux.org/9/ALSA-2026-1913.html",
-            "https://errata.rockylinux.org/RLSA-2026:1696",
+            "https://errata.rockylinux.org/RLSA-2026:1913",
             "https://linux.oracle.com/cve/CVE-2025-14104.html",
             "https://linux.oracle.com/errata/ELSA-2026-1913.html",
             "https://nvd.nist.gov/vuln/detail/CVE-2025-14104",
             "https://www.cve.org/CVERecord?id=CVE-2025-14104"
           ],
           "PublishedDate": "2025-12-05T17:16:03.117Z",
-          "LastModifiedDate": "2026-06-25T04:17:47.337Z"
+          "LastModifiedDate": "2026-06-30T00:16:53.04Z"
         },
         {
           "VulnerabilityID": "CVE-2026-53612",
@@ -21540,7 +21956,52 @@
             "https://www.vulncheck.com/advisories/nghttp2-nghttpx-http-request-response-smuggling-via-upgrade-request-with-content-length"
           ],
           "PublishedDate": "2026-06-28T02:16:32.677Z",
-          "LastModifiedDate": "2026-06-28T02:16:32.677Z"
+          "LastModifiedDate": "2026-06-29T19:27:47.75Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-13757",
+          "PkgID": "libp11-kit0@0.25.5-3",
+          "PkgName": "libp11-kit0",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libp11-kit0@0.25.5-3?arch=arm64\u0026distro=debian-13.5",
+            "UID": "14eb82072286a224"
+          },
+          "InstalledVersion": "0.25.5-3",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:74e33773ee422c9fd79e13f2cdd7e6303f90714d16a722175ed5fff61d220195",
+            "DiffID": "sha256:cdba327ac2d60d5bcda3553117d740aebbd7d3859f6e37798d7f36f57695aea4"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-13757",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:e118e5e4b16aad97244ff8e8943b97a24eb0174d14b6ca8365d7fa74b5c27847",
+          "Title": "p11-kit: Stack exhaustion via unbounded recursion in RPC attribute parsing",
+          "Description": "A flaw was found in p11-kit. The RPC message attribute parsing functions p11_rpc_message_get_attribute() and p11_rpc_message_get_attribute_array_value() form a mutually-recursive call chain with no recursion depth limit when processing nested CKA_WRAP_TEMPLATE, CKA_UNWRAP_TEMPLATE, and CKA_DERIVE_TEMPLATE attributes. An unauthenticated attacker with local access to the p11-kit RPC Unix domain socket can send a specially crafted request with deeply nested template attributes, causing stack exhaustion and crashing the p11-kit server process and its dependent services.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-674"
+          ],
+          "VendorSeverity": {
+            "redhat": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "V3Score": 6.2
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-13757",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2494556",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-13757",
+            "https://www.cve.org/CVERecord?id=CVE-2026-13757"
+          ],
+          "PublishedDate": "2026-06-29T19:16:40.907Z",
+          "LastModifiedDate": "2026-06-29T20:17:33.013Z"
         },
         {
           "VulnerabilityID": "CVE-2026-54411",
@@ -21846,6 +22307,53 @@
           "LastModifiedDate": "2026-06-17T10:44:03.563Z"
         },
         {
+          "VulnerabilityID": "CVE-2026-13595",
+          "PkgID": "libsmartcols1@2.41-5",
+          "PkgName": "libsmartcols1",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libsmartcols1@2.41-5?arch=arm64\u0026distro=debian-13.5",
+            "UID": "1c2df6837b99221b"
+          },
+          "InstalledVersion": "2.41-5",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:3be819c1c8cfde074541a1d875fbf2da3642b0ec6bb39aaa2ce7d56052b67dc1",
+            "DiffID": "sha256:221f7a7e2aa9a3dc4a14beca97f5dada40cf6915886474e7840e3b44c2b24f1a"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-13595",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:eb8153721c8a3bd9053d67723ce51a9b0801dcac09313873298db263431f0e99",
+          "Title": "util-linux: util-linux: heap use-after-free in libblkid nested partition probing",
+          "Description": "A flaw was found in the libblkid library of util-linux. During nested partition probing, the BSD, Minix, Solaris x86, and UnixWare partition probers cache a raw pointer to a parent partition entry in a dynamically allocated array. When subsequent partition additions cause the array to be reallocated, this pointer becomes stale, leading to a heap use-after-free read. An attacker who can present a crafted block device image (for example, via USB insertion or a loop-mounted disk image) can trigger this flaw without user interaction, as libblkid is invoked automatically by udev/udisks as root on block-device hot-plug events. This could lead to limited information disclosure or denial of service.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-416"
+          ],
+          "VendorSeverity": {
+            "redhat": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H",
+              "V3Score": 6.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:26573",
+            "https://access.redhat.com/security/cve/CVE-2026-13595",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2494101",
+            "https://github.com/util-linux/util-linux/commit/c0186f14fbdb02f64c8e0ba701ce727ea764ff4c",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-13595",
+            "https://www.cve.org/CVERecord?id=CVE-2026-13595"
+          ],
+          "PublishedDate": "2026-06-29T09:16:28.303Z",
+          "LastModifiedDate": "2026-06-30T03:17:14.55Z"
+        },
+        {
           "VulnerabilityID": "CVE-2026-27456",
           "PkgID": "libsmartcols1@2.41-5",
           "PkgName": "libsmartcols1",
@@ -22082,14 +22590,14 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2419369",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-14104",
             "https://errata.almalinux.org/9/ALSA-2026-1913.html",
-            "https://errata.rockylinux.org/RLSA-2026:1696",
+            "https://errata.rockylinux.org/RLSA-2026:1913",
             "https://linux.oracle.com/cve/CVE-2025-14104.html",
             "https://linux.oracle.com/errata/ELSA-2026-1913.html",
             "https://nvd.nist.gov/vuln/detail/CVE-2025-14104",
             "https://www.cve.org/CVERecord?id=CVE-2025-14104"
           ],
           "PublishedDate": "2025-12-05T17:16:03.117Z",
-          "LastModifiedDate": "2026-06-25T04:17:47.337Z"
+          "LastModifiedDate": "2026-06-30T00:16:53.04Z"
         },
         {
           "VulnerabilityID": "CVE-2026-53612",
@@ -22210,14 +22718,15 @@
           "Fingerprint": "sha256:e066a8b3bc174ac67356675fdd33a21021d4186881cf33279e5a5214caa26338",
           "Title": "SQLite before 3.53.2 contains memory corruption vulnerabilities in the ...",
           "Description": "SQLite before 3.53.2 contains memory corruption vulnerabilities in the FTS5 full-text search extension that allow attackers to cause process crashes, memory exhaustion, or arbitrary code execution by supplying a crafted database with malformed FTS5 page data. Attackers can trigger an out-of-bounds read in fts5LeafSeek() via an attacker-controlled loop bound and a heap buffer overflow write in fts5ChunkIterate() through a crafted continuation page causing an integer underflow, exploitable when an FTS5 MATCH query is executed against the malicious database.",
-          "Severity": "HIGH",
+          "Severity": "MEDIUM",
           "CweIDs": [
             "CWE-122"
           ],
           "VendorSeverity": {
             "azure": 3,
             "bitnami": 3,
-            "photon": 3
+            "photon": 3,
+            "ubuntu": 2
           },
           "CVSS": {
             "bitnami": {
@@ -22230,6 +22739,8 @@
             "https://sqlite.org/releaselog/3_53_2.html",
             "https://sqlite.org/src/info/061febcf41ca",
             "https://sqlite.org/src/info/4a5ad516ea93",
+            "https://ubuntu.com/security/notices/USN-8480-1",
+            "https://www.cve.org/CVERecord?id=CVE-2026-11822",
             "https://www.vulncheck.com/advisories/sqlite-before-memory-corruption-in-fts5-extension"
           ],
           "PublishedDate": "2026-06-09T20:16:32.15Z",
@@ -22258,14 +22769,15 @@
           "Fingerprint": "sha256:b703e828942a74beddfda302dee989aaab9698481ab6b245b257526484353a37",
           "Title": "SQLite before 3.53.2 contains a heap-based buffer overflow vulnerabili ...",
           "Description": "SQLite before 3.53.2 contains a heap-based buffer overflow vulnerability in the FTS5 full-text search extension that allows attackers to cause a crash or execute arbitrary code by supplying a crafted database with malicious continuation page metadata specifying a szLeaf value smaller than 4. Attackers can trigger an integer underflow in fts5ChunkIterate() causing an inflated remaining byte count during FTS5 MATCH query processing, leading to a heap buffer overflow of attacker-controlled data in applications compiled with SQLITE_ENABLE_FTS5.",
-          "Severity": "HIGH",
+          "Severity": "MEDIUM",
           "CweIDs": [
             "CWE-122"
           ],
           "VendorSeverity": {
             "azure": 3,
             "bitnami": 3,
-            "photon": 3
+            "photon": 3,
+            "ubuntu": 2
           },
           "CVSS": {
             "bitnami": {
@@ -22278,6 +22790,8 @@
             "https://sqlite.org/releaselog/3_53_2.html",
             "https://sqlite.org/src/info/061febcf41ca",
             "https://sqlite.org/src/info/4a5ad516ea93",
+            "https://ubuntu.com/security/notices/USN-8480-1",
+            "https://www.cve.org/CVERecord?id=CVE-2026-11824",
             "https://www.vulncheck.com/advisories/sqlite-before-heap-buffer-overflow-via-fts5-fts5chunkiterate"
           ],
           "PublishedDate": "2026-06-09T20:16:32.3Z",
@@ -22437,7 +22951,8 @@
           "VendorSeverity": {
             "azure": 3,
             "nvd": 4,
-            "redhat": 3
+            "photon": 4,
+            "redhat": 2
           },
           "CVSS": {
             "nvd": {
@@ -22445,8 +22960,8 @@
               "V3Score": 9.8
             },
             "redhat": {
-              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
-              "V3Score": 8.1
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:L",
+              "V3Score": 7.1
             }
           },
           "References": [
@@ -22564,11 +23079,15 @@
             }
           },
           "References": [
+            "https://access.redhat.com/errata/RHSA-2026:16736",
+            "https://access.redhat.com/errata/RHSA-2026:7021",
             "https://access.redhat.com/security/cve/CVE-2026-7598",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2464597",
             "https://github.com/libssh2/libssh2/",
             "https://github.com/libssh2/libssh2/commit/256d04b60d80bf1190e96b0ad1e91b2174d744b1",
             "https://github.com/libssh2/libssh2/pull/1858",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-7598",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-7598.json",
             "https://ubuntu.com/security/notices/USN-8309-1",
             "https://vuldb.com/submit/805564",
             "https://vuldb.com/vuln/360555",
@@ -22576,7 +23095,7 @@
             "https://www.cve.org/CVERecord?id=CVE-2026-7598"
           ],
           "PublishedDate": "2026-05-01T22:16:16.947Z",
-          "LastModifiedDate": "2026-06-17T11:02:39.193Z"
+          "LastModifiedDate": "2026-06-30T03:21:22.267Z"
         },
         {
           "VulnerabilityID": "CVE-2025-15661",
@@ -22657,19 +23176,31 @@
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
           "Fingerprint": "sha256:993323939bfda4b261313c62dbe3472e7626fc0877d3fcc287d1e7ea4f844884",
-          "Title": "libssh2 through 1.11.1 reads an attacker-controlled 32-bit attribute c ...",
+          "Title": "libssh2: libssh2: Heap buffer overflow via integer overflow in publickey attribute allocation",
           "Description": "libssh2 through 1.11.1 reads an attacker-controlled 32-bit attribute count from a publickey-subsystem response and uses it in the allocation num_attrs * sizeof(libssh2_publickey_attribute) without bounds checking, so on 32-bit platforms the multiplication overflows to an undersized buffer. A malicious SSH server can then drive the attribute-parsing loop to write past the allocation, causing a heap buffer overflow in a connecting libssh2 client.",
-          "Severity": "UNKNOWN",
+          "Severity": "MEDIUM",
           "CweIDs": [
             "CWE-190"
           ],
+          "VendorSeverity": {
+            "redhat": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:H",
+              "V3Score": 7
+            }
+          },
           "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-58050",
             "https://github.com/bikini/exploitarium/tree/main/libssh2-publickey-list-calc-poc",
             "https://github.com/libssh2/libssh2/blob/master/src/publickey.c",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-58050",
+            "https://www.cve.org/CVERecord?id=CVE-2026-58050",
             "https://www.vulncheck.com/advisories/libssh2-integer-overflow-in-publickey-subsystem-attribute-allocation"
           ],
           "PublishedDate": "2026-06-28T02:16:32.017Z",
-          "LastModifiedDate": "2026-06-28T02:16:32.017Z"
+          "LastModifiedDate": "2026-06-29T19:09:08.5Z"
         },
         {
           "VulnerabilityID": "CVE-2026-58051",
@@ -22692,19 +23223,31 @@
             "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
           },
           "Fingerprint": "sha256:d4e1ab1e02ee5fb4085cc5b242822567af950c6001294c9e4516bfdc36bf56de",
-          "Title": "libssh2 through 1.11.1 grows its publickey list with SSH2_REALLOC but  ...",
+          "Title": "libssh2: libssh2: Denial of service or information disclosure via malformed SSH publickey response",
           "Description": "libssh2 through 1.11.1 grows its publickey list with SSH2_REALLOC but does not zero-initialize new entries before parsing populates them, so a parse failure reaching the cleanup path leaves libssh2_publickey_list_free operating on an uninitialized entry. A malicious SSH server offering the publickey subsystem can use a malformed response to make cleanup free an uninitialized, attacker-influenceable attrs pointer in a connecting libssh2 client.",
-          "Severity": "UNKNOWN",
+          "Severity": "MEDIUM",
           "CweIDs": [
             "CWE-908"
           ],
+          "VendorSeverity": {
+            "redhat": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:H",
+              "V3Score": 6.5
+            }
+          },
           "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-58051",
             "https://github.com/bikini/exploitarium/tree/main/libssh2-publickey-list-calc-poc",
             "https://github.com/libssh2/libssh2/blob/master/src/publickey.c",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-58051",
+            "https://www.cve.org/CVERecord?id=CVE-2026-58051",
             "https://www.vulncheck.com/advisories/libssh2-free-of-uninitialized-pointer-in-publickey-list-cleanup"
           ],
           "PublishedDate": "2026-06-28T02:16:32.153Z",
-          "LastModifiedDate": "2026-06-28T02:16:32.153Z"
+          "LastModifiedDate": "2026-06-29T19:09:08.5Z"
         },
         {
           "VulnerabilityID": "CVE-2013-4392",
@@ -23009,7 +23552,7 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2427698",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-13151",
             "https://errata.almalinux.org/9/ALSA-2026-28253.html",
-            "https://errata.rockylinux.org/RLSA-2026:28235",
+            "https://errata.rockylinux.org/RLSA-2026:28253",
             "https://gitlab.com/gnutls/libtasn1",
             "https://gitlab.com/gnutls/libtasn1/-/merge_requests/121",
             "https://linux.oracle.com/cve/CVE-2025-13151.html",
@@ -23022,6 +23565,54 @@
           ],
           "PublishedDate": "2026-01-07T22:15:43.2Z",
           "LastModifiedDate": "2026-06-17T08:33:34.88Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-12912",
+          "PkgID": "libtiff6@4.7.0-3+deb13u2",
+          "PkgName": "libtiff6",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libtiff6@4.7.0-3%2Bdeb13u2?arch=arm64\u0026distro=debian-13.5",
+            "UID": "2f4462b6489073a3"
+          },
+          "InstalledVersion": "4.7.0-3+deb13u2",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:74e33773ee422c9fd79e13f2cdd7e6303f90714d16a722175ed5fff61d220195",
+            "DiffID": "sha256:cdba327ac2d60d5bcda3553117d740aebbd7d3859f6e37798d7f36f57695aea4"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-12912",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:f2a0778d23542d043ed1e9c7a7de84f076a6de11a6d47fb15c6d12bdb46b146a",
+          "Title": "libtiff: libtiff: Heap-based buffer overflow via crafted PixarLog-compressed TIFF image",
+          "Description": "A flaw was found in libtiff. A remote attacker could exploit this vulnerability by providing a specially crafted PixarLog-compressed TIFF image. This issue occurs when decoding Pixarlog codec images with the PIXARLOGDATAFMT_8BITABGR output format and a specific stride value, leading to a heap-based buffer overflow. This could potentially result in arbitrary code execution or a denial of service (DoS).",
+          "Severity": "HIGH",
+          "CweIDs": [
+            "CWE-122"
+          ],
+          "VendorSeverity": {
+            "redhat": 3
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H",
+              "V3Score": 7.3
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-12912",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2492871",
+            "https://gitlab.com/libtiff/libtiff/-/merge_requests/873",
+            "https://gitlab.com/libtiff/libtiff/-/work_items/824",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-12912",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-12912.json",
+            "https://www.cve.org/CVERecord?id=CVE-2026-12912"
+          ],
+          "PublishedDate": "2026-06-29T17:16:28.23Z",
+          "LastModifiedDate": "2026-06-30T05:17:39.84Z"
         },
         {
           "VulnerabilityID": "CVE-2017-16232",
@@ -24005,6 +24596,53 @@
           "LastModifiedDate": "2026-06-17T10:44:53.31Z"
         },
         {
+          "VulnerabilityID": "CVE-2026-13595",
+          "PkgID": "libuuid1@2.41-5",
+          "PkgName": "libuuid1",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libuuid1@2.41-5?arch=arm64\u0026distro=debian-13.5",
+            "UID": "4f56fb91313e3755"
+          },
+          "InstalledVersion": "2.41-5",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:3be819c1c8cfde074541a1d875fbf2da3642b0ec6bb39aaa2ce7d56052b67dc1",
+            "DiffID": "sha256:221f7a7e2aa9a3dc4a14beca97f5dada40cf6915886474e7840e3b44c2b24f1a"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-13595",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:e99a4125c9050dedfd8fbe082bbb410dac87dcd72d31a04d99e41402737c5658",
+          "Title": "util-linux: util-linux: heap use-after-free in libblkid nested partition probing",
+          "Description": "A flaw was found in the libblkid library of util-linux. During nested partition probing, the BSD, Minix, Solaris x86, and UnixWare partition probers cache a raw pointer to a parent partition entry in a dynamically allocated array. When subsequent partition additions cause the array to be reallocated, this pointer becomes stale, leading to a heap use-after-free read. An attacker who can present a crafted block device image (for example, via USB insertion or a loop-mounted disk image) can trigger this flaw without user interaction, as libblkid is invoked automatically by udev/udisks as root on block-device hot-plug events. This could lead to limited information disclosure or denial of service.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-416"
+          ],
+          "VendorSeverity": {
+            "redhat": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H",
+              "V3Score": 6.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:26573",
+            "https://access.redhat.com/security/cve/CVE-2026-13595",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2494101",
+            "https://github.com/util-linux/util-linux/commit/c0186f14fbdb02f64c8e0ba701ce727ea764ff4c",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-13595",
+            "https://www.cve.org/CVERecord?id=CVE-2026-13595"
+          ],
+          "PublishedDate": "2026-06-29T09:16:28.303Z",
+          "LastModifiedDate": "2026-06-30T03:17:14.55Z"
+        },
+        {
           "VulnerabilityID": "CVE-2026-27456",
           "PkgID": "libuuid1@2.41-5",
           "PkgName": "libuuid1",
@@ -24241,14 +24879,14 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2419369",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-14104",
             "https://errata.almalinux.org/9/ALSA-2026-1913.html",
-            "https://errata.rockylinux.org/RLSA-2026:1696",
+            "https://errata.rockylinux.org/RLSA-2026:1913",
             "https://linux.oracle.com/cve/CVE-2025-14104.html",
             "https://linux.oracle.com/errata/ELSA-2026-1913.html",
             "https://nvd.nist.gov/vuln/detail/CVE-2025-14104",
             "https://www.cve.org/CVERecord?id=CVE-2025-14104"
           ],
           "PublishedDate": "2025-12-05T17:16:03.117Z",
-          "LastModifiedDate": "2026-06-25T04:17:47.337Z"
+          "LastModifiedDate": "2026-06-30T00:16:53.04Z"
         },
         {
           "VulnerabilityID": "CVE-2026-53612",
@@ -24397,7 +25035,7 @@
             "https://www.cve.org/CVERecord?id=CVE-2026-0990"
           ],
           "PublishedDate": "2026-01-15T15:15:52.503Z",
-          "LastModifiedDate": "2026-06-17T10:11:44.087Z"
+          "LastModifiedDate": "2026-06-29T19:04:59.553Z"
         },
         {
           "VulnerabilityID": "CVE-2026-6653",
@@ -24506,7 +25144,7 @@
             "https://www.cve.org/CVERecord?id=CVE-2025-8732"
           ],
           "PublishedDate": "2025-08-08T17:15:30.583Z",
-          "LastModifiedDate": "2026-06-17T10:07:30.993Z"
+          "LastModifiedDate": "2026-06-29T19:05:40.607Z"
         },
         {
           "VulnerabilityID": "CVE-2026-0989",
@@ -24558,7 +25196,7 @@
             "https://www.cve.org/CVERecord?id=CVE-2026-0989"
           ],
           "PublishedDate": "2026-01-15T15:15:52.35Z",
-          "LastModifiedDate": "2026-06-17T10:11:43.97Z"
+          "LastModifiedDate": "2026-06-29T19:05:19.433Z"
         },
         {
           "VulnerabilityID": "CVE-2026-0992",
@@ -24611,7 +25249,55 @@
             "https://www.cve.org/CVERecord?id=CVE-2026-0992"
           ],
           "PublishedDate": "2026-01-15T15:15:52.657Z",
-          "LastModifiedDate": "2026-06-17T10:11:44.22Z"
+          "LastModifiedDate": "2026-06-29T19:03:32.927Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-11979",
+          "PkgID": "libxml2@2.12.7+dfsg+really2.9.14-2.1+deb13u2",
+          "PkgName": "libxml2",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/libxml2@2.12.7%2Bdfsg%2Breally2.9.14-2.1%2Bdeb13u2?arch=arm64\u0026distro=debian-13.5",
+            "UID": "d586e4a2c14cd3c7"
+          },
+          "InstalledVersion": "2.12.7+dfsg+really2.9.14-2.1+deb13u2",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:74e33773ee422c9fd79e13f2cdd7e6303f90714d16a722175ed5fff61d220195",
+            "DiffID": "sha256:cdba327ac2d60d5bcda3553117d740aebbd7d3859f6e37798d7f36f57695aea4"
+          },
+          "SeveritySource": "debian",
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-11979",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:cbf538f2a487c1abd3be70aca675928ba05688191f95e610bf8e5dd1a89b2f54",
+          "Title": "libxml2: libxml2: Arbitrary code execution in xmlcatalog utility via buffer overflow",
+          "Description": "libxml2 is vulnerable to multiple stack-based buffer overflows in the xmlcatalog utility when running in --shell mode. The usershell() function processes user input using fixed-size stack buffers without proper bounds checking.\nBy supplying an overly long input line, an attacker can overflow internal buffers (command, arg, and argv) during input parsing. This results in memory corruption within the stack frame.\nSuccessful exploitation may cause a crash or potentially allow arbitrary code execution in the context of the xmlcatalog process.\n\nThis issue has been fixed in the commit c2e233fc.\n\nNOTE:\nThe maintainers of this project did not agree that this issue is a vulnerability and considered it a bug.",
+          "Severity": "LOW",
+          "CweIDs": [
+            "CWE-121"
+          ],
+          "VendorSeverity": {
+            "debian": 1,
+            "redhat": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:L",
+              "V3Score": 4.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/security/cve/CVE-2026-11979",
+            "https://cert.pl/en/posts/2026/06/CVE-2026-11979",
+            "https://gitlab.gnome.org/GNOME/libxml2/-/commit/c2e233fc1b341685fc99621b2768b503f777a72e",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-11979",
+            "https://www.cve.org/CVERecord?id=CVE-2026-11979"
+          ],
+          "PublishedDate": "2026-06-29T14:16:40.593Z",
+          "LastModifiedDate": "2026-06-29T19:12:56.173Z"
         },
         {
           "VulnerabilityID": "CVE-2026-1757",
@@ -24776,12 +25462,13 @@
             "https://access.redhat.com/errata/RHSA-2026:29975",
             "https://access.redhat.com/errata/RHSA-2026:29976",
             "https://access.redhat.com/errata/RHSA-2026:30847",
+            "https://access.redhat.com/errata/RHSA-2026:33313",
             "https://access.redhat.com/security/cve/CVE-2025-10911",
             "https://bugzilla.redhat.com/2397838",
             "https://bugzilla.redhat.com/show_bug.cgi?id=2397838",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-10911",
             "https://errata.almalinux.org/9/ALSA-2026-28243.html",
-            "https://errata.rockylinux.org/RLSA-2026:28584",
+            "https://errata.rockylinux.org/RLSA-2026:28243",
             "https://gitlab.gnome.org/GNOME/libxslt/-/issues/144",
             "https://gitlab.gnome.org/GNOME/libxslt/-/merge_requests/77",
             "https://linux.oracle.com/cve/CVE-2025-10911.html",
@@ -24790,7 +25477,7 @@
             "https://www.cve.org/CVERecord?id=CVE-2025-10911"
           ],
           "PublishedDate": "2025-09-25T16:15:31.337Z",
-          "LastModifiedDate": "2026-06-29T04:16:25.067Z"
+          "LastModifiedDate": "2026-06-30T00:16:50.993Z"
         },
         {
           "VulnerabilityID": "CVE-2015-9019",
@@ -24897,7 +25584,54 @@
             "https://www.cve.org/CVERecord?id=CVE-2025-11731"
           ],
           "PublishedDate": "2025-10-14T06:15:34.483Z",
-          "LastModifiedDate": "2026-06-25T07:16:43.913Z"
+          "LastModifiedDate": "2026-06-30T07:16:30.78Z"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-13595",
+          "PkgID": "login@1:4.16.0-2+really2.41-5",
+          "PkgName": "login",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/login@4.16.0-2%2Breally2.41-5?arch=arm64\u0026distro=debian-13.5\u0026epoch=1",
+            "UID": "c10aa9dd27113351"
+          },
+          "InstalledVersion": "1:4.16.0-2+really2.41-5",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:3be819c1c8cfde074541a1d875fbf2da3642b0ec6bb39aaa2ce7d56052b67dc1",
+            "DiffID": "sha256:221f7a7e2aa9a3dc4a14beca97f5dada40cf6915886474e7840e3b44c2b24f1a"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-13595",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:ad041f000be8530c75d714ba0370718397fbf72b9229e8b795ecd5fdc8169065",
+          "Title": "util-linux: util-linux: heap use-after-free in libblkid nested partition probing",
+          "Description": "A flaw was found in the libblkid library of util-linux. During nested partition probing, the BSD, Minix, Solaris x86, and UnixWare partition probers cache a raw pointer to a parent partition entry in a dynamically allocated array. When subsequent partition additions cause the array to be reallocated, this pointer becomes stale, leading to a heap use-after-free read. An attacker who can present a crafted block device image (for example, via USB insertion or a loop-mounted disk image) can trigger this flaw without user interaction, as libblkid is invoked automatically by udev/udisks as root on block-device hot-plug events. This could lead to limited information disclosure or denial of service.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-416"
+          ],
+          "VendorSeverity": {
+            "redhat": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H",
+              "V3Score": 6.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:26573",
+            "https://access.redhat.com/security/cve/CVE-2026-13595",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2494101",
+            "https://github.com/util-linux/util-linux/commit/c0186f14fbdb02f64c8e0ba701ce727ea764ff4c",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-13595",
+            "https://www.cve.org/CVERecord?id=CVE-2026-13595"
+          ],
+          "PublishedDate": "2026-06-29T09:16:28.303Z",
+          "LastModifiedDate": "2026-06-30T03:17:14.55Z"
         },
         {
           "VulnerabilityID": "CVE-2026-27456",
@@ -25136,14 +25870,14 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2419369",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-14104",
             "https://errata.almalinux.org/9/ALSA-2026-1913.html",
-            "https://errata.rockylinux.org/RLSA-2026:1696",
+            "https://errata.rockylinux.org/RLSA-2026:1913",
             "https://linux.oracle.com/cve/CVE-2025-14104.html",
             "https://linux.oracle.com/errata/ELSA-2026-1913.html",
             "https://nvd.nist.gov/vuln/detail/CVE-2025-14104",
             "https://www.cve.org/CVERecord?id=CVE-2025-14104"
           ],
           "PublishedDate": "2025-12-05T17:16:03.117Z",
-          "LastModifiedDate": "2026-06-25T04:17:47.337Z"
+          "LastModifiedDate": "2026-06-30T00:16:53.04Z"
         },
         {
           "VulnerabilityID": "CVE-2026-53612",
@@ -25338,7 +26072,7 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2334165",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-56433",
             "https://errata.almalinux.org/9/ALSA-2025-20559.html",
-            "https://errata.rockylinux.org/RLSA-2025:20145",
+            "https://errata.rockylinux.org/RLSA-2025:20559",
             "https://github.com/shadow-maint/shadow/blob/e2512d5741d4a44bdd81a8c2d0029b6222728cf0/etc/login.defs#L238-L241",
             "https://github.com/shadow-maint/shadow/issues/1157",
             "https://github.com/shadow-maint/shadow/releases/tag/4.4",
@@ -25377,6 +26111,53 @@
           "VendorSeverity": {
             "debian": 1
           }
+        },
+        {
+          "VulnerabilityID": "CVE-2026-13595",
+          "PkgID": "mount@2.41-5",
+          "PkgName": "mount",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/mount@2.41-5?arch=arm64\u0026distro=debian-13.5",
+            "UID": "b5d8c7f244f632c9"
+          },
+          "InstalledVersion": "2.41-5",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:3be819c1c8cfde074541a1d875fbf2da3642b0ec6bb39aaa2ce7d56052b67dc1",
+            "DiffID": "sha256:221f7a7e2aa9a3dc4a14beca97f5dada40cf6915886474e7840e3b44c2b24f1a"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-13595",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:8f928cadff1fd1bcb574a89061e9107fcebc8e4656ae32e3136ee518f9289af1",
+          "Title": "util-linux: util-linux: heap use-after-free in libblkid nested partition probing",
+          "Description": "A flaw was found in the libblkid library of util-linux. During nested partition probing, the BSD, Minix, Solaris x86, and UnixWare partition probers cache a raw pointer to a parent partition entry in a dynamically allocated array. When subsequent partition additions cause the array to be reallocated, this pointer becomes stale, leading to a heap use-after-free read. An attacker who can present a crafted block device image (for example, via USB insertion or a loop-mounted disk image) can trigger this flaw without user interaction, as libblkid is invoked automatically by udev/udisks as root on block-device hot-plug events. This could lead to limited information disclosure or denial of service.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-416"
+          ],
+          "VendorSeverity": {
+            "redhat": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H",
+              "V3Score": 6.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:26573",
+            "https://access.redhat.com/security/cve/CVE-2026-13595",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2494101",
+            "https://github.com/util-linux/util-linux/commit/c0186f14fbdb02f64c8e0ba701ce727ea764ff4c",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-13595",
+            "https://www.cve.org/CVERecord?id=CVE-2026-13595"
+          ],
+          "PublishedDate": "2026-06-29T09:16:28.303Z",
+          "LastModifiedDate": "2026-06-30T03:17:14.55Z"
         },
         {
           "VulnerabilityID": "CVE-2026-27456",
@@ -25615,14 +26396,14 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2419369",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-14104",
             "https://errata.almalinux.org/9/ALSA-2026-1913.html",
-            "https://errata.rockylinux.org/RLSA-2026:1696",
+            "https://errata.rockylinux.org/RLSA-2026:1913",
             "https://linux.oracle.com/cve/CVE-2025-14104.html",
             "https://linux.oracle.com/errata/ELSA-2026-1913.html",
             "https://nvd.nist.gov/vuln/detail/CVE-2025-14104",
             "https://www.cve.org/CVERecord?id=CVE-2025-14104"
           ],
           "PublishedDate": "2025-12-05T17:16:03.117Z",
-          "LastModifiedDate": "2026-06-25T04:17:47.337Z"
+          "LastModifiedDate": "2026-06-30T00:16:53.04Z"
         },
         {
           "VulnerabilityID": "CVE-2026-53612",
@@ -26089,7 +26870,7 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2334165",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-56433",
             "https://errata.almalinux.org/9/ALSA-2025-20559.html",
-            "https://errata.rockylinux.org/RLSA-2025:20145",
+            "https://errata.rockylinux.org/RLSA-2025:20559",
             "https://github.com/shadow-maint/shadow/blob/e2512d5741d4a44bdd81a8c2d0029b6222728cf0/etc/login.defs#L238-L241",
             "https://github.com/shadow-maint/shadow/issues/1157",
             "https://github.com/shadow-maint/shadow/releases/tag/4.4",
@@ -26155,12 +26936,15 @@
           "Description": "Archive::Tar versions before 3.08 for Perl extract symlinks with attacker controlled targets outside the extraction directory.\n\n_make_special_file() passes the tar header's linkname to symlink() without validating it against absolute paths or .. segments. The secure-extract mode check that guards regular file extraction does not cover the symlink target.\n\nA subsequent open through the extracted name reads or writes the attacker chosen path.",
           "Severity": "CRITICAL",
           "CweIDs": [
-            "CWE-59"
+            "CWE-59",
+            "CWE-22"
           ],
           "VendorSeverity": {
+            "alma": 3,
             "amazon": 3,
             "azure": 3,
             "nvd": 4,
+            "oracle-oval": 3,
             "redhat": 3,
             "ubuntu": 2
           },
@@ -26175,17 +26959,27 @@
             }
           },
           "References": [
+            "https://access.redhat.com/errata/RHSA-2026:30851",
+            "https://access.redhat.com/errata/RHSA-2026:30852",
+            "https://access.redhat.com/errata/RHSA-2026:30856",
+            "https://access.redhat.com/errata/RHSA-2026:30857",
             "https://access.redhat.com/security/cve/CVE-2026-42496",
+            "https://bugzilla.redhat.com/2481314",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2481314",
+            "https://errata.almalinux.org/8/ALSA-2026-30852.html",
             "https://github.com/jib/archive-tar-new/commit/17c873492a05eddc0de18c1485e0b2cccd5a9158.patch",
+            "https://linux.oracle.com/cve/CVE-2026-42496.html",
+            "https://linux.oracle.com/errata/ELSA-2026-30852.html",
             "https://lists.security.metacpan.org/cve-announce/msg/40396459/",
             "https://metacpan.org/release/BINGOS/Archive-Tar-3.08/changes",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-42496",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-42496.json",
             "https://ubuntu.com/security/notices/USN-8467-1",
             "https://www.cve.org/CVERecord?id=CVE-2026-42496",
             "https://www.cve.org/CVERecord?id=CVE-2026-42497"
           ],
           "PublishedDate": "2026-05-26T02:16:40.13Z",
-          "LastModifiedDate": "2026-06-17T10:47:55.753Z"
+          "LastModifiedDate": "2026-06-30T03:19:37.663Z"
         },
         {
           "VulnerabilityID": "CVE-2026-8376",
@@ -26320,12 +27114,14 @@
           "Description": "IO::Compress versions before 2.220 for Perl can execute arbitrary code in File::GlobMapper via an attacker-controlled output glob.\n\n_parseOutputGlob() wraps the caller-supplied output glob string in double quotes and stores it in the parser state; _getFiles() then runs the stored expression through eval STRING. A literal double quote in the output glob closes the dquote wrapper, and the characters that follow are evaluated as Perl.\n\nArbitrary Perl in the output glob executes at the calling process's privilege.",
           "Severity": "HIGH",
           "CweIDs": [
-            "CWE-95"
+            "CWE-95",
+            "CWE-94"
           ],
           "VendorSeverity": {
             "alma": 3,
             "amazon": 3,
             "azure": 3,
+            "oracle-oval": 3,
             "redhat": 3
           },
           "CVSS": {
@@ -26336,17 +27132,32 @@
           },
           "References": [
             "http://www.openwall.com/lists/oss-security/2026/05/27/4",
+            "https://access.redhat.com/errata/RHSA-2026:29182",
+            "https://access.redhat.com/errata/RHSA-2026:29210",
+            "https://access.redhat.com/errata/RHSA-2026:29867",
+            "https://access.redhat.com/errata/RHSA-2026:29941",
+            "https://access.redhat.com/errata/RHSA-2026:30085",
+            "https://access.redhat.com/errata/RHSA-2026:30086",
+            "https://access.redhat.com/errata/RHSA-2026:30115",
+            "https://access.redhat.com/errata/RHSA-2026:30843",
+            "https://access.redhat.com/errata/RHSA-2026:30851",
+            "https://access.redhat.com/errata/RHSA-2026:30858",
             "https://access.redhat.com/errata/RHSA-2026:30859",
+            "https://access.redhat.com/errata/RHSA-2026:30860",
             "https://access.redhat.com/security/cve/CVE-2026-48962",
             "https://bugzilla.redhat.com/2481767",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2481767",
             "https://errata.almalinux.org/9/ALSA-2026-30859.html",
             "https://github.com/pmqs/IO-Compress/commit/f2db247bf90d4cc7ee2710be384946081f3b4610.patch",
+            "https://linux.oracle.com/cve/CVE-2026-48962.html",
+            "https://linux.oracle.com/errata/ELSA-2026-30858.html",
             "https://metacpan.org/release/PMQS/IO-Compress-2.220/changes",
             "https://nvd.nist.gov/vuln/detail/CVE-2026-48962",
+            "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-48962.json",
             "https://www.cve.org/CVERecord?id=CVE-2026-48962"
           ],
           "PublishedDate": "2026-05-27T04:16:31.333Z",
-          "LastModifiedDate": "2026-06-17T10:55:25.36Z"
+          "LastModifiedDate": "2026-06-30T03:20:27.927Z"
         },
         {
           "VulnerabilityID": "CVE-2026-9538",
@@ -26848,6 +27659,53 @@
           }
         },
         {
+          "VulnerabilityID": "CVE-2026-13595",
+          "PkgID": "util-linux@2.41-5",
+          "PkgName": "util-linux",
+          "PkgIdentifier": {
+            "PURL": "pkg:deb/debian/util-linux@2.41-5?arch=arm64\u0026distro=debian-13.5",
+            "UID": "e14fbd5975825c96"
+          },
+          "InstalledVersion": "2.41-5",
+          "Status": "affected",
+          "Layer": {
+            "Digest": "sha256:3be819c1c8cfde074541a1d875fbf2da3642b0ec6bb39aaa2ce7d56052b67dc1",
+            "DiffID": "sha256:221f7a7e2aa9a3dc4a14beca97f5dada40cf6915886474e7840e3b44c2b24f1a"
+          },
+          "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2026-13595",
+          "DataSource": {
+            "ID": "debian",
+            "Name": "Debian Security Tracker",
+            "URL": "https://salsa.debian.org/security-tracker-team/security-tracker"
+          },
+          "Fingerprint": "sha256:25e46557f3ad3595e950c43016dc232cbdc404ccf8a9025da40a8e6729f596a3",
+          "Title": "util-linux: util-linux: heap use-after-free in libblkid nested partition probing",
+          "Description": "A flaw was found in the libblkid library of util-linux. During nested partition probing, the BSD, Minix, Solaris x86, and UnixWare partition probers cache a raw pointer to a parent partition entry in a dynamically allocated array. When subsequent partition additions cause the array to be reallocated, this pointer becomes stale, leading to a heap use-after-free read. An attacker who can present a crafted block device image (for example, via USB insertion or a loop-mounted disk image) can trigger this flaw without user interaction, as libblkid is invoked automatically by udev/udisks as root on block-device hot-plug events. This could lead to limited information disclosure or denial of service.",
+          "Severity": "MEDIUM",
+          "CweIDs": [
+            "CWE-416"
+          ],
+          "VendorSeverity": {
+            "redhat": 2
+          },
+          "CVSS": {
+            "redhat": {
+              "V3Vector": "CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:H",
+              "V3Score": 6.8
+            }
+          },
+          "References": [
+            "https://access.redhat.com/errata/RHSA-2026:26573",
+            "https://access.redhat.com/security/cve/CVE-2026-13595",
+            "https://bugzilla.redhat.com/show_bug.cgi?id=2494101",
+            "https://github.com/util-linux/util-linux/commit/c0186f14fbdb02f64c8e0ba701ce727ea764ff4c",
+            "https://nvd.nist.gov/vuln/detail/CVE-2026-13595",
+            "https://www.cve.org/CVERecord?id=CVE-2026-13595"
+          ],
+          "PublishedDate": "2026-06-29T09:16:28.303Z",
+          "LastModifiedDate": "2026-06-30T03:17:14.55Z"
+        },
+        {
           "VulnerabilityID": "CVE-2026-27456",
           "PkgID": "util-linux@2.41-5",
           "PkgName": "util-linux",
@@ -27084,14 +27942,14 @@
             "https://bugzilla.redhat.com/show_bug.cgi?id=2419369",
             "https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2025-14104",
             "https://errata.almalinux.org/9/ALSA-2026-1913.html",
-            "https://errata.rockylinux.org/RLSA-2026:1696",
+            "https://errata.rockylinux.org/RLSA-2026:1913",
             "https://linux.oracle.com/cve/CVE-2025-14104.html",
             "https://linux.oracle.com/errata/ELSA-2026-1913.html",
             "https://nvd.nist.gov/vuln/detail/CVE-2025-14104",
             "https://www.cve.org/CVERecord?id=CVE-2025-14104"
           ],
           "PublishedDate": "2025-12-05T17:16:03.117Z",
-          "LastModifiedDate": "2026-06-25T04:17:47.337Z"
+          "LastModifiedDate": "2026-06-30T00:16:53.04Z"
         },
         {
           "VulnerabilityID": "CVE-2026-53612",

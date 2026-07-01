@@ -3,8 +3,8 @@
   "Trivy": {
     "Version": "0.71.2"
   },
-  "ReportID": "019f18d9-40a0-7474-9bbb-670f9bd23358",
-  "CreatedAt": "2026-06-30T19:35:18.880293+05:30",
+  "ReportID": "019f1dc6-4fa9-7b6d-baaf-07d642a6dff5",
+  "CreatedAt": "2026-07-01T18:32:43.62575+05:30",
   "ArtifactID": "sha256:6ef24ba904b1bbca2468833bc398e1ec2037b4f800e4113519b1be4a526e3d7a",
   "ArtifactName": "ubuntu:22.04",
   "ArtifactType": "container_image",
