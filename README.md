@@ -1,17 +1,17 @@
-# 🛡️ Docker Image Vulnerability Scanner with Reporting
+# Docker Image Vulnerability Scanner with Reporting
 
-## 📌 Final Capstone Project
+## Final Capstone Project
 
 **Project Assigned By:** HeroVired Virtual Education
 **Program:** PPMCAD – Batch 15
 
-### 👥 Team Members
+### Team Members
 
 * Fancy
 * Saima
 * Rahul Kumar
 
-# 📖 Project Overview
+# Project Overview
 
 As containerized applications become the industry standard, securing container images before deployment is essential. Vulnerable images can introduce security risks into production environments, leading to potential attacks and compliance issues.
 
@@ -19,13 +19,13 @@ This project develops an **automated Docker Image Vulnerability Scanner** that i
 
 The solution uses **Trivy** to scan Docker images against the latest **CVE (Common Vulnerabilities and Exposures)** database and generates detailed reports. It also supports automated execution through **GitHub Actions** and **Jenkins**, helping DevOps teams adopt security as part of their CI/CD workflow.
 
-# 🎯 Problem Statement
+# Problem Statement
 
 Modern DevOps teams frequently build and deploy containerized applications. However, security validation is often performed manually—or not at all—which increases the risk of deploying vulnerable container images into production.
 
 This project addresses that challenge by automating container image vulnerability scanning, integrating security checks directly into CI/CD pipelines, generating vulnerability reports, and providing actionable insights to developers before deployment.
 
-# 🎯 Project Goals
+# Project Goals
 
 The project aims to:
 
@@ -38,7 +38,7 @@ The project aims to:
 * Maintain historical scan reports for future auditing and analysis.
 * Improve DevSecOps practices by shifting security checks earlier in the software development lifecycle.
 
-# 🚀 Final Objectives
+# Final Objectives
 
 The Docker Image Vulnerability Scanner provides an end-to-end DevSecOps solution by:
 
@@ -51,7 +51,7 @@ The Docker Image Vulnerability Scanner provides an end-to-end DevSecOps solution
 * Laying the foundation for a dashboard to visualize vulnerability history and remediation progress.
 
 
-# 🛠️ Technologies Used
+# Technologies Used
 
 * Docker
 * Trivy
@@ -63,7 +63,7 @@ The Docker Image Vulnerability Scanner provides an end-to-end DevSecOps solution
 * CVE Database
 * Slack / Microsoft Teams (Notification Support)
 
-# 📂 Project Features
+# Project Features
 
 * ✅ Docker Image Vulnerability Scanning
 * ✅ CI/CD Pipeline Integration
@@ -75,7 +75,7 @@ The Docker Image Vulnerability Scanner provides an end-to-end DevSecOps solution
 * ✅ DevSecOps Best Practices
 
 
-# 📈 Expected Outcome
+# Expected Outcome
 
 By implementing this solution, DevOps teams can automatically detect vulnerabilities before production deployment, reduce security risks, and integrate security seamlessly into their continuous integration and continuous deployment workflows.
 
