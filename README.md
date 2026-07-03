@@ -1,43 +1,56 @@
-# Sprint 1: Docker Image Vulnerability Scanning
+# Container Image Vulnerability Scanner with Trivy
 
-## Sprint Objective
+A beginner-friendly DevSecOps project that scans Docker container images for known security vulnerabilities using **Trivy** and generates vulnerability reports.
 
-The objective of Sprint 1 is to set up the project environment and perform the first vulnerability scan on Docker container images using **Trivy**. This sprint establishes the foundation for integrating automated security scanning into CI/CD pipelines in later stages of the project.
+This project is the foundation for building an automated container security pipeline that can later integrate with GitHub Actions, Jenkins, Slack notifications, and security dashboards.
 
-## Learning Outcomes
+# Project Overview
 
-By completing Sprint 1, you will:
+Container images often contain operating system packages and application dependencies.
 
-* Understand the purpose of container image vulnerability scanning.
-* Learn how Trivy detects known vulnerabilities (CVEs).
-* Scan Docker images for security issues.
-* Generate vulnerability reports in JSON format.
-* Organize the project with a clean directory structure.
-* Prepare the project for future CI/CD integration.
+Some of these packages may have publicly known security vulnerabilities called **CVEs (Common Vulnerabilities and Exposures)**.
 
-## Prerequisites
+Before deploying a container into production, it is important to scan the image to identify these vulnerabilities.
 
-Before starting, ensure the following tools are installed:
+This project uses **Trivy**, an open-source vulnerability scanner, to inspect Docker images and generate security reports.
 
-* Docker Desktop
-* Git
-* Homebrew (macOS)
-* Trivy
-* Visual Studio Code (Recommended)
+# Project Goals
 
-Verify the installations:
+- Learn the basics of Docker image security.
+- Scan container images for known vulnerabilities.
+- Generate vulnerability reports.
+- Understand CVE severity levels.
+- Build the foundation for CI/CD security automation.
 
-docker --version
-git --version
-trivy --version
+# Project Architecture
 
+```
+                Docker Image
+                     │
+                     ▼
+             Trivy Vulnerability Scanner
+                     │
+                     ▼
+          Download Latest CVE Database
+                     │
+                     ▼
+         Compare Installed Packages
+                     │
+                     ▼
+          Detect Security Vulnerabilities
+                     │
+                     ▼
+            Generate Security Reports
+```
 
-## Project Structure
+# Project Structure
 
+```
 container-vulnerability-scanner/
 │
 ├── reports/
-│   └── nginx-report.json
+│   ├── nginx-report.json
+│   ├── nginx-report.txt
 │
 ├── scripts/
 │
@@ -46,170 +59,212 @@ container-vulnerability-scanner/
 ├── README.md
 │
 └── .gitignore
+```
+<img width="1942" height="564" alt="image" src="https://github.com/user-attachments/assets/a39743d9-9105-4f64-90b7-cf7284aa37a7" />
 
-## Step 1: Create the Project
+# Technologies Used
 
-Create a new project directory.
+| Tool | Purpose |
+|------|---------|
+| Docker | Container Platform |
+| Trivy | Vulnerability Scanner |
+| Git | Version Control |
+| GitHub | Repository Hosting |
 
-mkdir container-vulnerability-scanner
-cd container-vulnerability-scanner
+# Prerequisites
 
-## Step 2: Initialize Git Repository
+Install the following tools before running the project.
 
-Initialize Git to track project changes.
+## Docker
 
-git init
+Verify installation
+docker --version
 
-## Step 3: Install Trivy
+Test Docker
+docker run hello-world
+<img width="1930" height="852" alt="image" src="https://github.com/user-attachments/assets/00bc6460-863b-40d0-8244-ddd622d67cf7" />
 
-Install Trivy using Homebrew.
+## Install Trivy
+
+### macOS
 
 brew install trivy
 
-Verify the installation.
-
+Verify installation
 trivy --version
+<img width="1944" height="367" alt="image" src="https://github.com/user-attachments/assets/22f60007-2cbd-4d99-861a-085e2090c94b" />
 
+# Getting Started
 
-## Step 4: Pull a Sample Docker Image
+Move into the project directory
+cd container-vulnerability-scanner
+<img width="1937" height="309" alt="image" src="https://github.com/user-attachments/assets/b0027e18-5455-41e0-b942-1f5f918c675e" />
 
-Download a public Docker image.
+# Pull Sample Docker Images
 
+Download sample images for scanning.
 docker pull nginx
+<img width="1944" height="537" alt="image" src="https://github.com/user-attachments/assets/95149314-e3ba-48de-8f53-9b6b9e2eeb25" />
 
-You can also use:
-
-docker pull python:3.11
-
-or
+docker pull python:3.9
+<img width="3024" height="510" alt="image" src="https://github.com/user-attachments/assets/4e2b0631-86b5-4c71-aed6-d4b1d06b9e89" />
 
 docker pull ubuntu:22.04
+<img width="3024" height="311" alt="image" src="https://github.com/user-attachments/assets/11a78a9d-e0d4-483a-82ca-0b2e516909a9" />
 
-## Step 5: Verify Downloaded Images
-
-List all locally available Docker images.
-
+Verify downloaded images
 docker images
+<img width="3018" height="478" alt="image" src="https://github.com/user-attachments/assets/7790b823-ff0d-4333-a83c-359067f68465" />
 
-Example:
+# Scan Docker Images
 
-REPOSITORY    TAG
-
-nginx         latest
-python        3.11
-
-## Step 6: Scan the Docker Image
-
-Run a vulnerability scan using Trivy.
-
+Scan the Nginx image
 trivy image nginx
+<img width="3023" height="1845" alt="image" src="https://github.com/user-attachments/assets/9fe6b3bd-199b-4ae3-abfe-aa21b3d6e0b0" />
+<img width="3024" height="1858" alt="image" src="https://github.com/user-attachments/assets/de3edfc7-11cf-4ca2-892e-c123dd1a4452" />
 
-Trivy scans every package inside the Docker image and compares installed versions against the latest CVE database.
+Scan Python image
+trivy image python:3.9
+<img width="3013" height="265" alt="image" src="https://github.com/user-attachments/assets/00093dd3-a0bd-479b-9d6d-191f480d6ed6" />
+<img width="3024" height="1808" alt="image" src="https://github.com/user-attachments/assets/8898b4c6-3cbd-4e13-92db-217116504d46" />
+<img width="3021" height="1708" alt="image" src="https://github.com/user-attachments/assets/1f2d74ef-d07c-4448-9dc0-81bc8db40489" />
+<img width="3024" height="1838" alt="image" src="https://github.com/user-attachments/assets/55337380-cf20-49e9-84fb-2b94111bc357" />
 
-## Step 7: Review Scan Results
+Scan Ubuntu image
+trivy image ubuntu:22.04
+<img width="3017" height="1849" alt="image" src="https://github.com/user-attachments/assets/9df97077-123b-4ab4-a80a-91215b54cfe6" />
+<img width="3024" height="1765" alt="image" src="https://github.com/user-attachments/assets/221d8beb-eb3e-485a-970a-db1f26f1d25b" />
+<img width="3023" height="1809" alt="image" src="https://github.com/user-attachments/assets/3d77fab6-49db-4026-9c39-f984773a9e61" />
 
-Example summary:
+# Save Scan Reports
 
-Total: 15
+Generate JSON report
+trivy image nginx -f json -o reports/nginx-report.json
 
-LOW: 6
+Generate Table report
+trivy image nginx -f table -o reports/nginx-report.txt
+<img width="2264" height="456" alt="image" src="https://github.com/user-attachments/assets/0d2d7cf4-1ae3-4d59-a51c-491e36b3e68b" />
+<img width="3022" height="828" alt="image" src="https://github.com/user-attachments/assets/26477607-1bc4-41df-a0a2-6e68f393ee3e" />
 
-MEDIUM: 4
+# Example Vulnerability Report
 
-HIGH: 4
+Below is an example of a vulnerability detected by Trivy while scanning the **nginx** Docker image.
 
-CRITICAL: 1
+```text
+Package: curl
 
-Each vulnerability includes:
+Installed Version: 8.14.1-2+deb13u3
 
-* Vulnerability ID (CVE)
-* Affected Package
-* Installed Version
-* Fixed Version
-* Severity Level
-
-Example:
-
-Package: OpenSSL
-
-CVE: CVE-2024-12345
-
-Installed Version: 3.0.5
-
-Fixed Version: 3.0.12
+Fixed Version: Not Available
 
 Severity: HIGH
 
-## Step 8: Save Scan Report
+CVE: CVE-2026-5773
+```
 
-Create the reports directory.
+### Explanation
 
-mkdir reports
+- **Package** – The software package inside the Docker image.
+- **Installed Version** – The version currently installed in the image.
+- **Fixed Version** – The version that fixes the vulnerability. If blank or "Not Available", no fix has been released yet.
+- **Severity** – Indicates how serious the vulnerability is. In this case, it is **HIGH**.
+- **CVE** – A unique identifier for the vulnerability (`CVE-2026-5773`).
 
-Generate a JSON report.
+# Understanding the Report
 
-trivy image -f json -o reports/nginx-report.json nginx
+Each vulnerability contains important information.
 
-The generated report will be available at:
+| Field | Description |
+|--------|-------------|
+| Package | Software package inside the image |
+| Installed Version | Current installed version |
+| Fixed Version | Version where vulnerability is fixed |
+| Severity | Risk level of the vulnerability |
+| CVE | Unique identifier of the vulnerability |
 
-reports/nginx-report.json
+# Severity Levels
 
-## Step 9: View the Report
+| Severity | Description |
+|-----------|-------------|
+| LOW | Minor security issue |
+| MEDIUM | Should be reviewed |
+| HIGH | Serious vulnerability |
+| CRITICAL | Immediate action required |
 
-Open the report in Visual Studio Code.
+# What is a CVE?
 
-Example JSON output:
+**CVE** stands for **Common Vulnerabilities and Exposures**.
 
-{
-  "VulnerabilityID": "CVE-2024-12345",
-  "PkgName": "openssl",
-  "InstalledVersion": "3.0.5",
-  "FixedVersion": "3.0.12",
-  "Severity": "HIGH"
-}
+Every publicly known security vulnerability is assigned a unique CVE identifier.
 
-## Understanding CVEs
+Example
+CVE-2026-5773
+This allows security teams around the world to identify and track the same vulnerability.
 
-A **Common Vulnerabilities and Exposures (CVE)** identifier represents a publicly disclosed security vulnerability.
+# How Trivy Works
 
-Trivy continuously updates its vulnerability database to detect newly discovered security issues during image scans.
+```
+Docker Image
+      │
+      ▼
+Read Installed Packages
+      │
+      ▼
+Download Latest CVE Database
+      │
+      ▼
+Compare Package Versions
+      │
+      ▼
+Find Matching Vulnerabilities
+      │
+      ▼
+Generate Report
+```
+Trivy does not guess vulnerabilities.
+It compares installed package versions against a continuously updated vulnerability database.
 
-## Sprint 1 Workflow
+# Sample Images Tested
 
-Create Project
-       │
-       ▼
-Initialize Git Repository
-       │
-       ▼
-Install Docker & Trivy
-       │
-       ▼
-Pull Docker Image
-       │
-       ▼
-Run Trivy Scan
-       │
-       ▼
-Review Vulnerabilities
-       │
-       ▼
-Generate JSON Report
-       │
-       ▼
-Sprint 1 Complete ✅
+| Docker Image | Purpose |
+|--------------|---------|
+| nginx | Web Server |
+| python:3.9 | Python Runtime |
+| ubuntu:22.04 | Linux Operating System |
 
-## Sprint 1 Deliverables
 
-* Project repository created
-* Organized folder structure
-* Git repository initialized
-* Trivy installed successfully
-* Docker image downloaded
-* Vulnerability scan completed
-* JSON vulnerability report generated
-* Basic understanding of CVE-based image scanning
+# Sprint 1 Deliverables
 
-## Next Sprint
+- Docker installed
+- Trivy installed
+- Git repository initialized
+- Project folder structure created
+- Pulled sample Docker images
+- Successfully scanned images
+- Generated JSON reports
+- Generated Table reports
+- Learned CVE severity levels
 
-In **Sprint 2**, the vulnerability scanning process will be automated using **GitHub Actions** and **Jenkins**. Security policies will be enforced so that CI/CD pipelines automatically fail when High or Critical vulnerabilities are detected before deployment.
+# Future Improvements
+
+This project will continue with:
+
+- Bash automation scripts
+- GitHub Actions integration
+- Jenkins CI/CD pipeline
+- Severity threshold configuration
+- Slack notifications
+- Microsoft Teams notifications
+- HTML report generation
+- Historical vulnerability dashboard
+
+# Conclusion
+
+This project demonstrates the fundamentals of container image security by using **Trivy** to scan Docker images for known vulnerabilities. It shows how security can be integrated into the software development lifecycle by identifying vulnerabilities before applications are deployed to production.
+
+Throughout Sprint 1, the project establishes a strong foundation by installing and configuring Docker and Trivy, scanning multiple container images, understanding vulnerability reports, and generating security reports in both JSON and table formats. These steps provide a practical understanding of how vulnerability scanning works and why it is an essential part of modern DevSecOps practices.
+
+This project is designed to evolve in future sprints. The next phase will focus on automating vulnerability scanning through CI/CD pipelines using GitHub Actions and Jenkins, enforcing security policies based on vulnerability severity, and eventually adding notifications and reporting dashboards for continuous security monitoring.
+
+By completing this project, you gain hands-on experience with container security, vulnerability management, and DevSecOps workflows that are widely used in real-world software development and cloud environments.
+
