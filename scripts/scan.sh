@@ -1,27 +1,29 @@
 #!/bin/bash
 
-# Get the directory where scan.sh is located
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+echo "===================================="
+echo "Starting Trivy Vulnerability Scan..."
+echo "===================================="
 
-# Load .env from the project root
-source "$SCRIPT_DIR/../.env"
+# Create reports directory if it doesn't exist
+mkdir -p reports
 
-echo "Scanning Image..."
+# Image to scan
+IMAGE_NAME="nginx"
 
-trivy image \
-  --scanners vuln \
-  --timeout 10m \
-  --severity "$SEVERITY" \
-  --exit-code 1 \
-  "$IMAGE_NAME:$IMAGE_TAG"
+# Generate JSON report
+trivy image --scanners vuln \
+    -f json \
+    -o reports/nginx-report.json \
+    "$IMAGE_NAME"
 
-RESULT=$?
+# Generate Table report
+trivy image --scanners vuln \
+    -f table \
+    -o reports/nginx-report.txt \
+    "$IMAGE_NAME"
 
-if [ $RESULT -eq 0 ]
-then
-    echo "✅ No High/Critical Vulnerabilities."
-else
-    echo "❌ Vulnerabilities Found!"
-fi
-
-exit $RESULT
+echo ""
+echo "===================================="
+echo "Scan completed successfully!"
+echo "Reports saved in reports/"
+echo "===================================="

@@ -1,0 +1,22 @@
+name: Container Scan
+
+on:
+  push:
+    branches:
+      - sprint-2
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Image
+        run: docker build -t scanner .
+
+      - name: Install Trivy
+        uses: aquasecurity/trivy-action@master
+
+      - name: Scan Image
+        run: ./scripts/scan.sh scanner
